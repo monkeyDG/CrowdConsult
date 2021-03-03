@@ -1,0 +1,70 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Submit a new business case";
+}
+
+<html>
+    <body>
+        <h1><span>Submit a Business Case</span></h1>
+        <div class="container">
+            <form action="action_page.php">
+                <div class="row">
+                    <div class="col25percent">
+                        <label for="fname">Full Name</label>
+                    </div>
+                    <div class="col75percent">
+                        <input type="text" id="fname" name="firstname" placeholder="Your name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col25percent">
+                        <label for="title">Business Problem Title</label>
+                    </div>
+                    <div class="col75percent">
+                        <input type="text" id="title" name="title" placeholder="Concise and searchable title">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col25percent">
+                        <label for="country">Country</label>
+                    </div>
+                    <div class="col75percent">
+                        <select id="country" name="country">
+                        <option value="CA">Canada</option>
+                        <option value="MX">Mexico</option>
+                        <option value="US">USA</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col25percent">
+                        <label for="bounty">Bounty</label>
+                    </div>
+                    <div class="col75percent">
+                        <input type="text" id="bounty" name="bounty" placeholder="CAD$">
+                    </div>
+                </div>
+                    <div class="row">
+                    <div class="col25percent">
+                        <label for="tags">Tags</label>
+                    </div>
+                    <div class="col75percent">
+                        <input type="text" id="tags" name="tags" placeholder="Relevant tags">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col25percent">
+                        <label for="subject">Business Problem Description</label>
+                    </div>
+                    <div class="col75percent">
+                        <textarea id="subject" name="subject" placeholder="Write something..." style="height:200px"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

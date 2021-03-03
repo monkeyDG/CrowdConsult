@@ -1,0 +1,37 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css"> 
+        <style>
+            .btnHome {
+                font-family: 'Segoe UI';
+                border: 1px solid #c9c9c9;
+                background-color: white;
+                color: black;
+                padding: 15px 25px;
+                text-align: center;
+                font-size: 24px;
+                transition-duration: 0.3s;
+                border-radius: 4px;
+                text-decoration: none
+            }
+            .btnHome:hover {
+                background-color: #d9d9d9;
+            }
+        </style>
+    </head>
+    <body class="homepage">
+        <div class="centerText">
+            <h3>A collaborative platform for business to get tough problems solved and aspiring consultants to solve tough problems.</h3>
+        </div>
+
+        <div class="centerButton">
+            <a class="btnHome" href="/Submit">I'm a business</a>
+            <a class="btnHome" href="/Active">I'm a consultant</a>
+        </div>
+    </body>
+</html>

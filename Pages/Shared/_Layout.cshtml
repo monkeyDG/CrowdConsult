@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - CrowdConsult</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css"/>
+    </head>
+    <header>
+        <nav class="fill">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" asp-area="" asp-page="/Index"></a><img src="https://i.imgur.com/VPZQSev.png" alt="">
+            <div class="navbar-collapse collapse d-sm-inline-flex"></div>
+                <ul>
+                    <li><a class="nav-link" asp-area="" asp-page="/Index">Home</a></li>
+                    <li><a class="nav-link" asp-area="" asp-page="/Submit">Submit a Business Case</a></a></li>
+                    <li><a class="nav-link" asp-area="" asp-page="/Active">Active Business Cases</a></a></li>
+                    <li><a class="nav-link" asp-area="" asp-page="/Dashboard">My Dashboard</a></a></li>
+                </ul>
+            </div>
+            <div class="container">
+                <form>
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search for a business case..." aria-label="Search">
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <body>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
+
+    <footer class="footer border-top footer text-muted">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h4>CrowdConsult</h4>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li><a href="/Index">Home</a></li>
+                                <li><a href="/Active">Active Business Cases</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled">
+                                <li><a href="/Submit">Submit a Business Case</a></li>
+                                <li><a href="/Dashboard">User Dashboard</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <ul class="nav">
+                        <li class="nav-item"><a href="https://www.facebook.com/uottawa/" class="nav-link pl-0"><img src="https://i.imgur.com/LylLHan.png"></img></a></li>
+                        <li class="nav-item"><a href="https://twitter.com/uOttawa" class="nav-link"><img src="https://i.imgur.com/U81k45S.png"></img></a></li>
+                        <li class="nav-item"><a href="https://github.com/monkeydg" class="nav-link"><img src="https://i.imgur.com/Uwou1M5.png"></img></a></li>
+                        <li class="nav-item"><a href="https://www.instagram.com/uottawa/?hl=en" class="nav-link"><img src="https://i.imgur.com/IBowsY2.png"></img></a></li>
+                    </ul>
+                    <br>
+                </div>
+                <div class="col-md-2">
+                    <h5 class="text-md-right">Contact Us</h5>
+                    <hr>
+                </div>
+                <div class="col-md-5">
+                    <form>
+                        <fieldset class="form-group">
+                            <input type="email" class="form-control" id="emailContact" placeholder="Enter email">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <textarea class="form-control" id="messageContact" placeholder="Message"></textarea>
+                        </fieldset>
+                        <fieldset class="form-group text-xs-right">
+                            <button type="button" class="btn">Send</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+</html>

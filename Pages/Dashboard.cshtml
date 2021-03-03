@@ -1,0 +1,65 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "My Dashboard";
+}
+
+<html>
+    <head>
+        <title>My Dashboard</title>
+    </head>
+
+    <body>
+        <div class="row">
+            <div class="leftcolumn">
+                <h7 class="h7">My Activity</h7>
+                <div class="card">
+                    <p style="text-align:left;">
+                        <b>IT Infrastructure Modernization at XYZ Corp</b>
+                        <span style="float:right;">
+                            <b>Bounty: $300</b>
+                        </span>
+                    </p>
+                    <p>Posted Dated, Feb 8, 2021</p>
+                    <div class="btn-group">
+                        <a href="/Case">
+                            <button class="btn2">View</button>
+                        </a>
+                        <button class="btn2">Edit</button>
+                        <button class="btn3">Delete</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <p style="text-align:left;">
+                        <b>Data ETL with Python</b>
+                        <span style="float:right;">
+                            <b>Bounty: $750</b>
+                        </span>
+                    </p>
+                    <p>Posted Dated, Feb 8, 2021</p>
+                    <div class="btn-group">
+                        <a href="/Case">
+                            <button class="btn2">View</button>
+                        </a>
+                        <button class="btn2">Edit</button>
+                        <button class="btn3">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="rightcolumn">
+                <div class="card">
+                    <h7 class="h7">Profile</h7>    
+                    <img src="https://i.imgur.com/nHU6zrb.jpg" alt="profilePic" width="150">
+                    <br>
+                    <dl>
+                        <dt>John Doe</dt>        
+                        <dt>Ottawa, ON</dt>
+                        <dt>(613)123-4567</dt>
+                        <dt><a href="mailto:john.doe@gmail.com">john.doe@gmail.com</a></dt>
+                    </dl>
+                    <button class="btn2">Edit</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
