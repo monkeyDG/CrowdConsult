@@ -1,20 +1,30 @@
 @page
-@model IndexModel
+@model SubmitModel
 @{
     ViewData["Title"] = "Submit a new business case";
 }
 
 <html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="site.css"> 
+        <script src="js/site.js"></script>
+    </head>
     <body>
         <h1><span>Submit a Business Case</span></h1>
+        <div class="position">
+            <div class="progress-container">
+                <div class="progress-highlight" id="js-highlight"></div>
+            </div>
+        </div>
         <div class="container">
-            <form action="action_page.php">
+            <form action="CreateCase" onsubmit="return validateCaseSubmission()" method="POST"> <!-- validate the form if submitted. CreateCase is not yet built to accept form inputs -- this will be connected to mongodb for Create operations. We can use javascript local storage to store the values we want to add to mongodb -->
                 <div class="row">
                     <div class="col25percent">
                         <label for="fname">Full Name</label>
                     </div>
                     <div class="col75percent">
-                        <input type="text" id="fname" name="firstname" placeholder="Your name">
+                        <input type="text" id="fullname" name="fullname" placeholder="Your name">
                     </div>
                 </div>
                 <div class="row">
@@ -31,9 +41,10 @@
                     </div>
                     <div class="col75percent">
                         <select id="country" name="country">
-                        <option value="CA">Canada</option>
-                        <option value="MX">Mexico</option>
-                        <option value="US">USA</option>
+                        @foreach (var country in Model.Countries)
+                        {
+                            <option value="@country.country_code">@country.name</option>
+                        }
                         </select>
                     </div>
                 </div>
@@ -62,9 +73,13 @@
                     </div>
                 </div>
                 <div class="row">
-                    <input type="submit" value="Submit">
+                    <input type="submit" value="Submit" id="submit_btn">
                 </div>
             </form>
         </div>
+
+        <script type="text/javascript">
+            window.onscroll = function() { ProgressFunction() };
+        </script>
     </body>
 </html>

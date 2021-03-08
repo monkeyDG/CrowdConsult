@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Adm4379Example.services;
 
 namespace Adm4379Example
 {
@@ -24,6 +25,8 @@ namespace Adm4379Example
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddTransient<JsonCountriesReaderService>();
+            services.AddTransient<JsonCasesReaderService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,33 +5,17 @@
 }
 <html>
     <head>
-        <link rel="stylesheet" href="style.css"> 
-        <style>
-            .btnHome {
-                font-family: 'Segoe UI';
-                border: 1px solid #c9c9c9;
-                background-color: white;
-                color: black;
-                padding: 15px 25px;
-                text-align: center;
-                font-size: 24px;
-                transition-duration: 0.3s;
-                border-radius: 4px;
-                text-decoration: none
-            }
-            .btnHome:hover {
-                background-color: #d9d9d9;
-            }
-        </style>
+        <link rel="stylesheet" href="site.css"> 
     </head>
     <body class="homepage">
         <div class="centerText">
             <h3>A collaborative platform for business to get tough problems solved and aspiring consultants to solve tough problems.</h3>
         </div>
-
-        <div class="centerButton">
-            <a class="btnHome" href="/Submit">I'm a business</a>
-            <a class="btnHome" href="/Active">I'm a consultant</a>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- required for onmouseover/out hover effects -->
+        
+        <div class="centerButton"> <!-- hover effects for homepage buttons. Need to use button type instead of html link to prevent conflict issues with navbar -->
+            <button type="button" id="btnHome1" class="btnHome" onmouseover="hoverText('btnHome1')" onmouseout="unhoverText('btnHome1')" onclick="window.location.href='/Active'">I'm a consultant</a>
+            <button type="button"  id="btnHome2" class="btnHome" onmouseover="hoverText('btnHome2')" onmouseout="unhoverText('btnHome2')" onclick="window.location.href='/Submit'">I'm a business</a>
         </div>
     </body>
 </html>

@@ -1,5 +1,5 @@
 @page
-@model IndexModel
+@model ActiveModel
 @{
     ViewData["Title"] = "Active business cases";
 }
@@ -7,71 +7,33 @@
 <html>
     <head>
         <title>Active Business Cases</title>
+        <script src="js/site.js"></script>
     </head>
 
     <body>
         <h1><span>Active Business Cases</span></h1>
         <div class="zone flex-wrapper">
-            <a href="/Case">
-                <div class="box zone">
-                    <div class="content">
-                        <div class="topic img-wrapper"><img src="https://i.imgur.com/DZwcb9O.png"><h6>IT Infrastructure Modernization at XYZ Corp</h6></div>
-                        <div class="info">
-                            <div>Number of responses: 10</div>
-                            <div>Last updated: 20 mins ago</div>
-                            <div>Bounty: $300</div>
+            @foreach (var bcase in Model.Cases)
+            {
+                <a href="/Case">
+                    <div class="box zone">
+                        <div class="row">
+                            <div class="col75percent img-wrapper"><img src="@bcase.logo"><h6>@bcase.title</h6></div>
+                            <div class="col25percent info">
+                                <div>Responses: @bcase.num_responses</div>
+                                <div id="@bcase.index"></div>
+                                <div>Bounty (USD): @bcase.bounty$</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
-            <a href="/Case">
-                <div class="box zone">
-                    <div class="content">
-                        <div class="topic img-wrapper"><img src="https://i.imgur.com/DZwcb9O.png"><h6>How can I improve employee morale?</h6></div>
-                        <div class="info">
-                            <div>Number of responses: 4</div>
-                            <div>Last updated: 2 hours ago</div>
-                            <div>Bounty: $350</div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="/Case">
-                <div class="box zone">
-                    <div class="content">
-                        <div class="topic img-wrapper"><img src="https://i.imgur.com/DZwcb9O.png"><h6>Data ETL with Python</h6></div>
-                        <div class="info">
-                            <div>Number of responses: 6</div>
-                            <div>Last updated: 5 hours ago</div>
-                            <div>Bounty: $750</div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="/Case">
-                <div class="box zone">
-                    <div class="content">
-                        <div class="topic img-wrapper"><img src="https://i.imgur.com/DZwcb9O.png"><h6>Merger and Aquisition Support Requested</h6></div>
-                        <div class="info">
-                            <div>Number of responses: 11</div>
-                            <div>Last updated: 7 hours ago</div>
-                            <div>Bounty: $100</div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="/Case">
-                <div class="box zone">
-                    <div class="content">
-                        <div class="topic img-wrapper"><img src="https://i.imgur.com/DZwcb9O.png"><h6>Marketing Strategy -- media or print ads?</h6></div>
-                        <div class="info">
-                            <div>Number of responses: 4</div>
-                            <div>Last updated: 10 days ago</div>
-                            <div>Bounty: $350</div>
-                        </div>
-                    </div>
-                </div>
-            </a>
+                </a>
+            }
         </div>
+        
+        @foreach (var bcase in Model.Cases) {
+            <script type="text/javascript">
+                document.getElementById(@bcase.index).innerHTML = timeElapsed(@bcase.datetime);
+            </script>
+        } 
     </body>
 </html>

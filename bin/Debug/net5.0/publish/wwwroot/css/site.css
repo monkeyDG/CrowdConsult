@@ -1,0 +1,518 @@
+﻿/* =========================  Common  ========================= */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    background-image: url('https://i.imgur.com/U9FpP22.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+/* Headers */
+
+h1 {
+    text-align: center;
+    padding: 50px 0;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: -1px;
+    color: inherit;
+    font-size: 40px;
+}
+  
+h2 {
+    text-align: center;
+    font-size: 30px;
+    margin: 0;
+    font-weight: 300;
+    color: rgb(10, 10, 10);
+    padding: 50px;
+}
+
+h3 {
+    font-family: 'Segoe UI';
+    text-align: center;
+    font-size: 40px;
+    margin: 0;
+    font-weight: 380;
+    color: rgb(10, 10, 10);
+    padding: 50px 0px 100px 0px;
+}
+
+h4 {
+    font-size: 25px;
+    margin: 0;
+    font-weight: 300;
+    color: rgb(201, 201, 201);
+    padding-bottom: 50px;
+}
+
+h5 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 300;
+    color: rgb(224, 224, 224);
+}
+
+h6 {
+    font-size: 22px;
+    margin: 20px;
+    font-weight: 300;
+    color: black
+}
+
+  
+.h7 {
+    text-align: center;
+    font-size: 30px;
+    margin: 0;
+    font-weight: 300;
+    color: rgb(10, 10, 10);
+    padding: 10px;
+}
+
+/* Links */
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+/* Divs and spacing */
+
+flex-wrapper {
+    display: flex;
+    grid-gap: 20px;
+    flex-direction: column;
+}
+
+span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
+}
+
+.container {
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.header {
+    padding: 30px;
+    font-size: 40px;
+    text-align: center;
+    background: white;
+}
+
+
+/* Navbar */
+
+nav {
+    width: 80%;
+    margin: 0 auto;
+    background: rgb(255, 255, 255);
+    padding: 50px 0;
+    box-shadow: 0px 5px 0px #dedede;
+}
+nav ul {
+    list-style: none;
+    text-align: center;
+}
+nav ul li {
+    display: inline-block;
+}
+nav ul li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: rgb(172, 172, 172);
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0 10px;
+}
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+    transition: all .3s;
+}
+nav ul li a:hover {
+    color: rgb(82, 82, 82);
+}
+  
+nav.fill ul li a {
+    position: relative;
+}
+
+nav.fill ul li a:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: '.';
+    color: transparent;
+    background: rgb(168, 168, 168);
+    height: 1px;
+}
+
+nav.fill ul li a:after {
+    text-align: left;
+    content: '.';
+    margin: 0;
+    opacity: 0;
+}
+nav.fill ul li a:hover {
+    color: black;
+    z-index: 1;
+}
+nav.fill ul li a:hover:after {
+    z-index: -10;
+    animation: fill .5s forwards;
+    opacity: 1;
+}
+
+@keyframes fill {
+    0% {
+      width: 0%;
+      height: 1px;
+    }
+    50% {
+      width: 100%;
+      height: 1px;
+    }
+    100% {
+      width: 100%;
+      height: 100%;
+      background: #ffe600;
+    }
+}
+
+/* Footer */
+
+.footer {
+    bottom: 0;
+    height: 300px;
+}
+
+footer {
+    padding-top: 30px;
+    background-color: #313131;
+}
+  
+footer a {
+    color: rgb(223, 223, 223);
+    text-decoration:none;
+}
+  
+footer a:hover, footer a:focus {
+    color: rgb(255, 255, 255);
+    text-decoration:none;
+    border-bottom:1px dotted #999;
+}
+  
+footer .form-control {
+    background-color: #1f2022;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    color: #d1d2d2;
+    padding: 0.7em 1em;
+}
+
+/* Buttons */
+
+.btn {
+    border: 1px solid #c9c9c9;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.3s;
+}
+
+.btn:hover {
+    background-color: #4d4d4d;
+    color: white;
+}
+
+.btn2 {
+    border: 1px solid #c9c9c9;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.3s;
+}
+
+.btn2:hover {
+    background-color: #ffd900;
+    color: black;
+}
+
+.btn3 {
+    border: 1px solid #c9c9c9;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.3s;
+}
+
+.btn3:hover {
+    background-color: rgb(255, 146, 146);
+    color: black;
+}
+
+
+/* =========================  Index.cshtml  ========================= */
+
+/* Background */
+
+.homepage {
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    margin: 0;
+    background-image: url('https://i.imgur.com/dqBrask.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100%;
+}
+
+/* =========================  Active.cshtml  ========================= */
+
+/* Divs and spacing */
+
+.box {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    border: 1px solid #bbb;
+    padding: 30px;
+    margin: 0px 30px 20px 30px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.box:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.box > img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
+
+.content {
+    display: flex;
+    align-items: baseline;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    font-size: 1.2rem;
+    align-self: center;
+}
+
+/* =========================  Case.cshtml  ========================= */
+
+/* Text */
+
+.case_debrief_font{
+    font-size: 14px;
+    letter-spacing: 0px;
+    word-spacing: 2px;
+    color: black;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.case_full_font{
+    font-size: 12px;
+    letter-spacing: 0px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+}
+
+.responder_name{
+    text-align: left;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 600;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: uppercase;
+}
+.responder_date{
+    font-size: 14px;
+    letter-spacing: 0px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 400;
+    font-style: normal;
+    font-variant: normal;
+}
+  
+/* Divs and spacing */
+
+.zone {
+    padding: 30px 70px;
+    color: rgb(0, 0, 0);
+    font-size: 1.5em;
+}
+
+.case_debrief{
+    background-color: white;
+    color: black;
+    padding: 30px;
+}
+
+.img-wrapper {
+    display: flex;
+    grid-gap: 10px;
+    flex-direction: row;
+    align-items: center;
+}
+
+.box2 {
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    padding: 30px;
+    margin: 0px 30px 20px 30px;
+    font-size: 1.5rem;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+}
+
+.centerButton {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+    padding-bottom: 100px
+}
+
+.centerText {
+    padding-top: 30px;
+    text-align: center
+}
+  
+section {
+    height: 100vh;
+}
+
+/* =========================  Submit.cshtml  ========================= */
+
+/* Input form */
+
+input[type=text], select, textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+  
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+  
+input[type=submit] {
+    background-color: #ffe600;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    float: right;
+} 
+
+.col25percent {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col75percent {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+  
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* =========================  Dashboard.cshtml  ========================= */
+
+/* Divs and spacing */
+
+.leftcolumn { 
+    float: left;
+    width: 75%;
+}
+
+.rightcolumn {
+    float: left;
+    width: 25%;
+    padding-left: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* for small screens */
+@media screen and (max-width: 800px) {
+    .leftcolumn, .rightcolumn { 
+        width: 100%;
+        padding: 0;
+    }
+}
+
+/* Profile picture */
+
+.profilePic {
+    width: 100%;
+    padding: 20px;
+}

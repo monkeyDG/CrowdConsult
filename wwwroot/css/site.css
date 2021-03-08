@@ -15,6 +15,15 @@ html {
     min-height: 100%;
 }
 
+::selection {
+    background: #FAD207;
+    color: black;
+  }
+  ::-moz-selection {
+    background: #FAD207;
+    color: black;
+  }
+
 /* Headers */
 
 h1 {
@@ -88,6 +97,10 @@ a {
 a:hover {
     color: inherit;
     text-decoration: inherit;
+}
+
+nav-link:hover {
+    background-color: initial !important;
 }
 
 /* Divs and spacing */
@@ -245,6 +258,7 @@ footer .form-control {
     transition-duration: 0.3s;
 }
 
+
 .btn:hover {
     background-color: #4d4d4d;
     color: white;
@@ -282,6 +296,23 @@ footer .form-control {
     color: black;
 }
 
+.btnHome {
+    font-family: 'Segoe UI';
+    border: 1px solid #c9c9c9;
+    background-color: white;
+    color: black;
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 24px;
+    transition-duration: 0.3s;
+    border-radius: 4px;
+    text-decoration: none
+}
+/* DEPRECATED, NOW USING JS FUNCTION
+.btnHome:hover {
+    color: white;
+    background-color: #d9d9d9;
+} */
 
 /* =========================  Index.cshtml  ========================= */
 
@@ -327,12 +358,13 @@ footer .form-control {
     align-items: baseline;
 }
 
-.info {
+.row {
     display: flex;
-    flex-direction: column;
-    margin-left: auto;
-    font-size: 1.2rem;
-    align-self: center;
+}
+
+.info {
+    font-size: 1.1rem;
+    align-content: right;
 }
 
 /* =========================  Case.cshtml  ========================= */
@@ -474,11 +506,43 @@ input[type=submit] {
     width: 75%;
     margin-top: 6px;
 }
+
+.col85percent {
+    float: left;
+    width: 85%;
+}
+
+.col15percent {
+    float: left;
+    width: 15%;
+}
   
 .row:after {
     content: "";
     display: table;
     clear: both;
+}
+
+/* Progress bar */
+
+.position {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width:100%;
+    max-width:1100px;
+    background: rgba(0,0,0,0.5);
+}
+
+.progress-container {
+    width:100%;
+    background: #000;
+}
+
+.progress-highlight {
+    height: 8px;
+    background:#f0dc29;
+    width: 0%;
 }
 
 /* =========================  Dashboard.cshtml  ========================= */
