@@ -11,7 +11,7 @@ window.onscroll = function(){
     progress.style.height = scrolled + "%";
 }
 
-// Human-readable Date and Time for Case.cshtml to convert epoch to datetime
+// Human-readable Date and Time for Case.cshtml to convert epoch to datetime, by saving the value as a Date type instead of long and converting to a string with built-in js methods
 function convertEpoch(postDate)
 {
     result = new Date(postDate);
