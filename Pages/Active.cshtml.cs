@@ -26,11 +26,5 @@ namespace Adm4379Example.Pages
         {
             Cases = service.GetCases();
         }
-
-        public string timeSince()
-        {
-            string result = "test";
-            return result;
-        }
     }
 }

@@ -1,6 +1,23 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
+// Scroll bar
+let progress = document.getElementById('scroll');
+let totalHeight = document.body.offsetHeight;
+window.onscroll = function(){
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    progress.style.height = scrolled + "%";
+}
+
+// Human-readable Date and Time for Case.cshtml to convert epoch to datetime
+function convertEpoch(postDate)
+{
+    result = new Date(postDate);
+    return result.toLocaleString();
+}
+
 // Time Elapsed function for Active.cshtml to see when a case was posted
 function timeElapsed(postDate) {
     var seconds = Math.floor((Date.now() - postDate) / 1000); // div 1000 to go from ms to s for epoch
@@ -42,15 +59,6 @@ function timeElapsed(postDate) {
 };
 
 
-// Progress bar on Submit.cshtml
-function ProgressFunction() {
-    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    var scrolled = (winScroll / height) * 100;
-    document.getElementById("js-highlight").style.width = scrolled + "%";
-};
-
-
 // Hover effects on homepage buttons (the text specifically). Replaces CSS implementation for text color change.
 function hoverText(buttonID) {
     var y = document.getElementById(buttonID);
@@ -67,14 +75,14 @@ function unhoverText(buttonID) {
 
 // input validation for Submit.cshtml and _Layout.cshtml
 function bountyIsValid(bounty) {
-    return /^\d*\.?\d*$/.test(bounty); //regex check for bounty values
+    return /^\d*\.?\d*$/.test(bounty); //regex check for numeric bounty values
 };
 
 function nameIsValid(name) {
     return /^[a-zA-Z ]*$/.test(name); //regex check for alphabet-only name
 };
 
-function emailIsValid(email) {
+function emailIsValid(email) { //regex check for email-allowable characters
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
@@ -106,7 +114,6 @@ function validateCaseSubmission() {
     }
     return false;
 };
-
 
 function validateContactForm() {
     const emailAddress = document.getElementById("emailContact");

@@ -12,13 +12,10 @@
     </head>
     <body>
         <h1><span>Submit a Business Case</span></h1>
-        <div class="position">
-            <div class="progress-container">
-                <div class="progress-highlight" id="js-highlight"></div>
-            </div>
-        </div>
         <div class="container">
-            <form action="CreateCase" onsubmit="return validateCaseSubmission()" method="POST"> <!-- validate the form if submitted. CreateCase is not yet built to accept form inputs -- this will be connected to mongodb for Create operations. We can use javascript local storage to store the values we want to add to mongodb -->
+            <form action="CreateCase" onsubmit="return validateCaseSubmission()" method="POST"> 
+                <!-- above line validates the form when submitted. CreateCase is not yet built to accept form inputs -- this will be connected to mongodb for Create operations.
+                We can use javascript local storage to store the values we want to add to mongodb if we want to do additional client-side validation first, since description text will be too long to pass by URL string query -->
                 <div class="row">
                     <div class="col25percent">
                         <label for="fname">Full Name</label>
@@ -77,9 +74,5 @@
                 </div>
             </form>
         </div>
-
-        <script type="text/javascript">
-            window.onscroll = function() { ProgressFunction() };
-        </script>
     </body>
 </html>

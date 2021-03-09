@@ -27,11 +27,7 @@ namespace Adm4379Example.Pages
         {
             Cases = service.GetCases();
         }
-        Uri myUri = new Uri("http://www.example.com?param1=good&param2=bad");
-        //string tmp = "test";
-        //string param1 = HttpUtility.ParseQueryString(tmp).Get("param1");
-        //WIP
         
-
+        public bool caseFound = false;
     }
 }

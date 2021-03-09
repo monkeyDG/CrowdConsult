@@ -13,15 +13,16 @@
     <body>
         <h1><span>Active Business Cases</span></h1>
         <div class="zone flex-wrapper">
+            <!-- we're appending the id in query-format to the end of the URL three lines down, so we can parse it on page load and display the correct case. -->
             @foreach (var bcase in Model.Cases)
             {
-                <a href="/Case">
+                <a href="/Case?id=@bcase.id">
                     <div class="box zone">
                         <div class="row">
                             <div class="col75percent img-wrapper"><img src="@bcase.logo"><h6>@bcase.title</h6></div>
                             <div class="col25percent info">
                                 <div>Responses: @bcase.num_responses</div>
-                                <div id="@bcase.index"></div>
+                                <div id="@bcase.id"></div>
                                 <div>Bounty (USD): @bcase.bounty$</div>
                             </div>
                         </div>
@@ -32,7 +33,7 @@
         
         @foreach (var bcase in Model.Cases) {
             <script type="text/javascript">
-                document.getElementById(@bcase.index).innerHTML = timeElapsed(@bcase.datetime);
+                document.getElementById(@bcase.id).innerHTML = "Posted: " + timeElapsed(@bcase.datetime) + " ago";
             </script>
         } 
     </body>
