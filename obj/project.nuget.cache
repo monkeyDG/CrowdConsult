@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ALoF55siuk1nRq+3sQM9UUeHrWWcDkonYopRV5eFnsIGdXTxEk5lP7+mf5/6/8kc3Gi6M8cfpSMxqHlN6EkOQg==",
+  "dgSpecHash": "DBiAdUUDZUHZOEScim/evhuV3mRI76IYANb0RZgNiJBtDu/ALVdeDtYcTpJAy7FK37ObjWimckAhTtwORKI8Yg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Administrator\\Documents\\CrowdConsult\\Adm4379Example.csproj",
+  "projectFilePath": "C:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Adm4379Example.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Administrator\\.nuget\\packages\\dnsclient\\1.3.1\\dnsclient.1.3.1.nupkg.sha512",
     "C:\\Users\\Administrator\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
