@@ -88,3 +88,12 @@ C:\Users\Administrator\Documents\CrowdConsult\obj\Debug\net5.0\ref\Adm4379Exampl
 C:\Users\Administrator\Documents\CrowdConsult\obj\Debug\net5.0\Adm4379Example.pdb
 C:\Users\Administrator\Documents\CrowdConsult\obj\Debug\net5.0\Adm4379Example.genruntimeconfig.cache
 C:\Users\Administrator\Documents\CrowdConsult\obj\Debug\net5.0\Adm4379Example.csproj.CopyComplete
+C:\Users\Administrator\Documents\CrowdConsult\bin\Debug\net5.0\DnsClient.dll
+C:\Users\Administrator\Documents\CrowdConsult\bin\Debug\net5.0\MongoDB.Bson.dll
+C:\Users\Administrator\Documents\CrowdConsult\bin\Debug\net5.0\MongoDB.Driver.dll
+C:\Users\Administrator\Documents\CrowdConsult\bin\Debug\net5.0\MongoDB.Driver.Core.dll
+C:\Users\Administrator\Documents\CrowdConsult\bin\Debug\net5.0\MongoDB.Libmongocrypt.dll
+C:\Users\Administrator\Documents\CrowdConsult\bin\Debug\net5.0\SharpCompress.dll
+C:\Users\Administrator\Documents\CrowdConsult\bin\Debug\net5.0\runtimes\win\native\libzstd.dll
+C:\Users\Administrator\Documents\CrowdConsult\bin\Debug\net5.0\runtimes\win\native\snappy32.dll
+C:\Users\Administrator\Documents\CrowdConsult\bin\Debug\net5.0\runtimes\win\native\snappy64.dll

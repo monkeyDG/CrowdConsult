@@ -20,7 +20,8 @@ namespace Adm4379Example
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>().UseUrls("http://*:5001");
+                    webBuilder.UseStartup<Startup>();
+                    //webBuilder.UseStartup<Startup>().UseUrls("http://*:5001");  // UNCOMMENT TO EXPOSE EXTERNALLY
                 });
     }
 }

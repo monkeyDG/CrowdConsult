@@ -8,24 +8,43 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Adm4379Example.services;
 using Adm4379Example.Model;
+using Adm4379Example.Services;
 
 namespace Adm4379Example.Pages
 {
     public class DashboardModel : PageModel
     {
-        private readonly ILogger<CaseModel> _logger;
-        private JsonCasesReaderService service;
+        private readonly ILogger<DashboardModel> _logger;
+        //deprecated, for reading from JSON file -----------------------------------------------
+        //private JsonCasesReaderService service; 
+        //public IEnumerable<Cases> Cases;
+
+        //public ActiveModel(ILogger<DashboardModel> logger, JsonCasesReaderService jcasesrs)
+        //{
+        //    _logger = logger;
+        //    service = jcasesrs;
+        //}
+
+        public CountriesService MyCountriesService;
+        public IEnumerable<Countries> Countries;
+
+        public CasesService MyCasesService;
         public IEnumerable<Cases> Cases;
 
-        public DashboardModel(ILogger<CaseModel> logger, JsonCasesReaderService jcasesrs)
+        public DashboardModel(ILogger<DashboardModel> logger, CountriesService counServ, CasesService caseServ)
         {
             _logger = logger;
-            service = jcasesrs;
+            MyCountriesService = counServ;
+            MyCasesService = caseServ;
         }
+
 
         public void OnGet()
         {
-            Cases = service.GetCases();
+            Countries = MyCountriesService.GetCountries();
+            Cases = MyCasesService.GetCases();
         }
+        
+        public bool caseFound = false;
     }
 }
