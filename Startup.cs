@@ -9,6 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Adm4379Example.services;
+using Adm4379Example.Model;
+using Microsoft.Extensions.Options;
+using Adm4379Example.Services;
 
 namespace Adm4379Example
 {
@@ -24,6 +27,15 @@ namespace Adm4379Example
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<CrowdConsultDatabaseSettings>(
+                Configuration.GetSection(nameof(CrowdConsultDatabaseSettings))
+            );
+            services.AddSingleton<CrowdConsultDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<CrowdConsultDatabaseSettings>>().Value
+            );
+            services.AddSingleton<CountriesService>();
+            services.AddSingleton<CasesService>();
+            
             services.AddRazorPages();
             services.AddTransient<JsonCountriesReaderService>();
             services.AddTransient<JsonCasesReaderService>();

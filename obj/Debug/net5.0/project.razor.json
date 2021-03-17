@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Administrator\\Documents\\CrowdConsult\\Adm4379Example.csproj",
+  "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Adm4379Example.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "5.0",
@@ -15603,62 +15603,62 @@
   "RootNamespace": "Adm4379Example",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Administrator\\Documents\\CrowdConsult\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Administrator\\Documents\\CrowdConsult\\Pages\\Dashboard.cshtml",
-      "TargetPath": "Pages\\Dashboard.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Administrator\\Documents\\CrowdConsult\\Pages\\Privacy.cshtml",
-      "TargetPath": "Pages\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Administrator\\Documents\\CrowdConsult\\Pages\\Active.cshtml",
-      "TargetPath": "Pages\\Active.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Administrator\\Documents\\CrowdConsult\\Pages\\Shared\\_Layout.cshtml",
-      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Administrator\\Documents\\CrowdConsult\\Pages\\Error.cshtml",
-      "TargetPath": "Pages\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Administrator\\Documents\\CrowdConsult\\Pages\\_ViewStart.cshtml",
+      "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Pages\\_ViewStart.cshtml",
       "TargetPath": "Pages\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Administrator\\Documents\\CrowdConsult\\Pages\\Case.cshtml",
+      "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Pages\\Privacy.cshtml",
+      "TargetPath": "Pages\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Pages\\Dashboard.cshtml",
+      "TargetPath": "Pages\\Dashboard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Pages\\Case.cshtml",
       "TargetPath": "Pages\\Case.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Administrator\\Documents\\CrowdConsult\\Pages\\Login.cshtml",
-      "TargetPath": "Pages\\Login.cshtml",
+      "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Pages\\Error.cshtml",
+      "TargetPath": "Pages\\Error.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Administrator\\Documents\\CrowdConsult\\Pages\\_ViewImports.cshtml",
+      "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Pages\\_ViewImports.cshtml",
       "TargetPath": "Pages\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Administrator\\Documents\\CrowdConsult\\Pages\\Submit.cshtml",
+      "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Pages\\Submit.cshtml",
       "TargetPath": "Pages\\Submit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Administrator\\Documents\\CrowdConsult\\Pages\\Index.cshtml",
+      "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Pages\\Shared\\_Layout.cshtml",
+      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Pages\\Active.cshtml",
+      "TargetPath": "Pages\\Active.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Pages\\Login.cshtml",
+      "TargetPath": "Pages\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Pages\\Index.cshtml",
       "TargetPath": "Pages\\Index.cshtml",
       "FileKind": "mvc"
     }

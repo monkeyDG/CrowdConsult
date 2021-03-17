@@ -1,13 +1,16 @@
 [
     {
+        "mongo_id": "1",
         "country_code": "CA",
         "name": "Canada"
     },
     {
+        "mongo_id": "2",
         "country_code": "US",
         "name": "United States"
     },
     {
+        "mongo_id": "3",
         "country_code": "MX",
         "name": "Mexico"
     }
