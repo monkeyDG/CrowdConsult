@@ -1,0 +1,48 @@
+[
+    {
+        "user_id": "0",
+        "name": "Jane Doe",
+        "company": "ABC Corp",
+        "phone": "613-999-9999",
+        "email": "jane.doe@abccorp.ca",
+        "case_posts": 1,
+        "consult_contributions": 7
+    },
+    {
+        "user_id": "1",
+        "name": "Cavan May",
+        "company": "DFG Corp",
+        "phone": "613-888-8888",
+        "email": "cavan.may@dfgcorp.ca",
+        "case_posts": 1,
+        "consult_contributions": 4
+    },
+    {
+        "user_id": "2",
+        "name": "Raphael Rodriguez",
+        "company": "HIJ Corp",
+        "phone": "+52-1-55-1234-5678",
+        "email": "raphael.rodriguezu@hijcorp.ca",
+        "case_posts": 1,
+        "consult_contributions": 5
+    },    
+    {
+        "user_id": "3",
+        "name": "Charles Cantu",
+        "company": "LMN Corp",
+        "phone": "212-777-7777",
+        "email": "charles.cantu@lmncorp.ca",
+        "case_posts": 1,
+        "consult_contributions": 6
+    },
+    {
+        "user_id": "4",
+        "name": "Connor Houghton",
+        "company": "OPQ Corp",
+        "phone": "416-555-5555",
+        "email": "connor.houghton@opqcorp.ca",
+        "case_posts": 1,
+        "consult_contributions": 3
+    }
+    
+]
