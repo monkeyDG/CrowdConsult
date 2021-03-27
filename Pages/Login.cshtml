@@ -1,0 +1,89 @@
+@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Log In or Sign Up";
+}
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="site.css"> 
+        <script src="js/site.js"></script>
+    </head>
+    <body>
+        <div id="signUpDiv">
+            <h1><span>Create a New Account</span></h1>
+            <div class="container">
+                <form action="SignUp" onsubmit="return validateSignUpSubmission()" method="POST"> 
+                    <!-- above line validates the form when submitted. SignUp is not yet built to accept form inputs -- this will be connected to mongodb for Create operations.
+                    We can use javascript local storage to store the values we want to add to mongodb if we want to do additional client-side validation first, since description text will be too long to pass by URL string query -->
+                    <div class="row">
+                        <div class="col25percent">
+                            <label for="nameSignUp">Full Name</label>
+                        </div>
+                        <div class="col75percent">
+                            <input type="text" id="nameSignUp" name="nameSignUp" placeholder="John Smith">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col25percent">
+                            <label for="emailSignUp">Email Address</label>
+                        </div>
+                        <div class="col75percent">
+                            <input type="text" id="emailSignUp" name="emailSignUp" placeholder="example@email.com">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col25percent">
+                            <label for="phoneSignUp">Phone Number</label>
+                        </div>
+                        <div class="col75percent">
+                            <input type="text" id="phoneSignUp" name="phoneSignUp" placeholder="+X (XXX) XXX-XXXX">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col25percent">
+                            <label for="locationSignUp">Location</label>
+                        </div>
+                        <div class="col75percent">
+                            <input type="text" id="locationSignUp" name="locationSignUp" placeholder="City, Country">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <input type="submit" value="Sign Up" id="submit_btn_SignUp">
+                    </div>
+                </form>
+            </div>
+            <button onclick="toLogIn()">I already have an account</button>
+        </div>
+        <div id="logInDiv" style="display: none">
+            <h1><span>Log In to Your Account</span></h1>
+            <div class="container">
+                <form action="logIn" onsubmit="return validateLogIn()" method="POST"> 
+                    <!-- above line validates the form when submitted. SignUp is not yet built to accept form inputs -- this will be connected to mongodb for Create operations.
+                    We can use javascript local storage to store the values we want to add to mongodb if we want to do additional client-side validation first, since description text will be too long to pass by URL string query -->
+                    <div class="row">
+                        <div class="col25percent">
+                            <label for="emailLogIn">Email Address</label>
+                        </div>
+                        <div class="col75percent">
+                            <input type="text" id="emailLogIn" name="emailLogIn" placeholder="example@email.com">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col25percent">
+                            <label for="passwordLogIn">Password</label>
+                        </div>
+                        <div class="col75percent">
+                            <input type="text" id="passwordLogIn" name="passwordLogIn">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <input type="submit" value="Log In" id="submit_btn_SignUp">
+                    </div>
+                </form>
+            </div>
+            <button onclick="toSignUp()">I don't have an account</button>
+        </div>
+    </body>
+</html>

@@ -116,19 +116,78 @@ function validateCaseSubmission() {
 };
 
 function validateContactForm() {
-    const emailAddress = document.getElementById("emailContact");
+    const emailContact = document.getElementById("emailContact");
     const message = document.getElementById("messageContact");
-    if (emailAddress.value === "") {
+    if (emailContact.value === "") {
         alert("Please enter your email address.");
-        emailAddress.focus();
+        emailContact.focus();
     } else if (message.value === "") {
         alert("Please enter a message");
         message.focus();
-    } else if (!emailIsValid(emailAddress.value)) {
+    } else if (!emailIsValid(emailContact.value)) {
         alert("Please enter a valid email address.");
-        emailAddress.focus();
+        emailContact.focus();
     } else {
         return true; //only goes to the next page/submits if no errors on page
     }
     return false;
 };
+
+function validateSignUp() {
+    const emailSignUp = document.getElementById("emailSignUp");
+    const name = document.getElementById("nameSignUp");
+    const location = document.getElementById("locationSignUp");
+    const phone = document.getElementById("phoneSignUp");
+    if (emailSignUp.value === "") {
+        alert("Please enter your email address.");
+        emailSignUp.focus();
+    } else if (name.value === "") {
+        alert("Please enter your name");
+        name.focus();
+    } else if (location.value === "") {
+        alert("Please enter your location");
+        location.focus();
+    } else if (phone.value === "") {
+        alert("Please enter your phone number");
+        phone.focus();
+    } else if (!emailIsValid(emailSignUp.value)) {
+        alert("Please enter a valid email address.");
+        emailSignUp.focus();
+    } else {
+        return true; //only goes to the next page/submits if no errors on page
+    }
+    return false;
+};
+
+function validateLogIn() {
+    const emailLogIn = document.getElementById("emailLogIn");
+    const password = document.getElementById("passwordLogIn");
+    if (emailLogIn.value === "") {
+        alert("Please enter your email address.");
+        emailLogIn.focus();
+    } else if (password.value === "") {
+        alert("Please enter your password");
+        password.focus();
+    } else if (!emailIsValid(emailLogIn.value)) {
+        alert("Please enter a valid email address.");
+        emailLogIn.focus();
+    } else {
+        return true; //only goes to the next page/submits if no errors on page
+    }
+    return false;
+};
+
+//below functions show/hide log in or signup sections depending on which which button is clicked on the page
+function toSignUp() {
+    var logInDiv = document.getElementById("logInDiv");
+    var signUpDiv = document.getElementById("signUpDiv");
+    logInDiv.style.display = "none";
+    signUpDiv.style.display = "block";
+}
+
+function toLogIn() {
+    var logInDiv = document.getElementById("logInDiv");
+    var signUpDiv = document.getElementById("signUpDiv");
+    logInDiv.style.display = "block";
+    signUpDiv.style.display = "none";
+}

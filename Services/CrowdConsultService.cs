@@ -46,4 +46,25 @@ namespace Adm4379Example.Services {
             _cases.DeleteOne(cases => cases.mongo_id == id);
         }
     }   
+    public class UsersService {
+        private readonly IMongoCollection<Users> _users;
+        public UsersService(CrowdConsultDatabaseSettings settings) {
+            var client = new MongoClient(settings.ConnectionString);
+            var database = client.GetDatabase(settings.DatabaseName);
+            _users = database.GetCollection<Users>(settings.UsersCollectionName);
+        }
+        public Users Create(Users users){
+            _users.InsertOne(users);
+            return users;
+        }
+        public List<Users> GetUsers() {
+            return _users.Find(users => true).ToList();
+        }
+        public void Update(Users usersUp) {
+            _users.ReplaceOne(users => users.mongo_id == usersUp.mongo_id, usersUp);
+        }
+        public void Remove(string id) {
+            _users.DeleteOne(users => users.mongo_id == id);
+        }
+    }   
 }

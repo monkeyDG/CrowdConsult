@@ -8,11 +8,11 @@ using Microsoft.Extensions.Logging;
 
 namespace Adm4379Example.Pages
 {
-    public class IndexModel : PageModel
+    public class LoginModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public LoginModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
         }
