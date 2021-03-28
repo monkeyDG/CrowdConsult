@@ -61,20 +61,27 @@
                         </div>  
                         <input type="submit" value="Submit Response">
                     </div>
+                } else {
+                    <div>
+                        <a class="underline center" href="/Login"><h6>You must login to post a reponse to this business case</h6></a>
+                    </div>
                 }
                 <div>
-                    <h2>Other Responses</h2>
+                    <h2>Responses</h2>
                     @foreach (var response in bcase.Responses) { 
                         <div style="text-align: left;">
                             <div class="flex-wrapper">
                                 <div class="box2">
-                                    <h2 class="responder_name">@response.response_user</h2>
-                                    <p class="responder_date" id="response_datetime"></p>    
+                                    @foreach (var user in Model.Users) { 
+                                        @if (response.response_user == user.id) {
+                                            <a class="underline" href="/User?id=@user.id"><h2 class="responder_name nopad">@user.name</h2></a>
+                                        }
+                                    }
+                                    <p class="responder_date" id="response_datetime_@response.response_user"></p>    
                                     <script>
-                                        var responseDatetime = convertEpoch(@response.response_datetime);
-                                        document.getElementById("response_datetime").innerHTML = "<b>Date Posted: </b>" + response.response_Datetime;
+                                        var legibleDate = convertEpoch(@response.response_datetime);
+                                        document.getElementById("response_datetime_@response.response_user").innerHTML = "<b>Date Posted: </b>" + legibleDate;
                                     </script>
-                                    <br>
                                     <p class ="case_full_font">@response.response_description</p> 
                                 </div> 
                             </div>

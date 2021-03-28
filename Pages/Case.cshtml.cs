@@ -31,12 +31,15 @@ namespace Adm4379Example.Pages
 
         public CasesService MyCasesService;
         public IEnumerable<Cases> Cases;
+        public UsersService MyUsersService;
+        public IEnumerable<Users> Users;
 
-        public CaseModel(ILogger<CaseModel> logger, CountriesService counServ, CasesService caseServ)
+        public CaseModel(ILogger<CaseModel> logger, CountriesService counServ, CasesService caseServ, UsersService usersServ)
         {
             _logger = logger;
             MyCountriesService = counServ;
             MyCasesService = caseServ;
+            MyUsersService = usersServ;
         }
         
        
@@ -44,6 +47,7 @@ namespace Adm4379Example.Pages
         {
             Countries = MyCountriesService.GetCountries();
             Cases = MyCasesService.GetCases();
+            Users = MyUsersService.GetUsers();
 
             //TESTING:
             //if (string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyEmail)))

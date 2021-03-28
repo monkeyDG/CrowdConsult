@@ -128,6 +128,10 @@ nav-link:hover {
     background-color: initial !important;
 }
 
+.underline:hover {
+    text-decoration: underline;
+}
+
 /* Divs and spacing */
 
 flex-wrapper {
@@ -157,6 +161,11 @@ span {
 .center {
     text-align: center;
     align-content: center;
+}
+
+.nopad {
+    padding: 0;
+    margin: 0
 }
 
 
@@ -294,7 +303,8 @@ footer .form-control {
 
 .btn:hover {
     background-color: #7c7c7c !important;
-    COLOR: white !important;
+    transition-duration: 0.3s;
+    color: white !important;
 }
 
 .btn2 {
@@ -309,7 +319,8 @@ footer .form-control {
 }
 
 .btn2:hover {
-    background-color: #ffd900;
+    background-color: #ffc400;
+    transition-duration: 0.3s;
     color: black;
 }
 
@@ -327,6 +338,7 @@ footer .form-control {
 .btnDelete:hover {
     background-color: rgb(255, 146, 146);
     color: black;
+    transition-duration: 0.3s;
 }
 
 .btnHome {
@@ -624,4 +636,15 @@ input[type=submit]:hover {
 .profilePic {
     width: 100%;
     padding: 20px;
+}
+
+
+/* ================ Login.cshtml ============= */
+input[type=password], select, textarea{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid rgb(202, 202, 202);
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
 }

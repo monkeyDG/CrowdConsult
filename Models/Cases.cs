@@ -6,7 +6,7 @@ namespace Adm4379Example.Model {
     {
         public string response_user { get; set; }
         public string response_description { get; set; }
-        public object response_datetime { get; set; }
+        public long response_datetime { get; set; }
         public string response_is_best { get; set; }
     }
     public class Cases {

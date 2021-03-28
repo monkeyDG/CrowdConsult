@@ -23,33 +23,23 @@ namespace Adm4379Example.Pages
             _logger = logger;
             MyUsersService = usersServ;
         }
-        public const string SessionKeyEmail = "";
-        public const string SessionKeyPassword = "";
-
-        //TODO: delete below
-        public string SessionInfo_Email { get; private set; }
-        public string SessionInfo_Password { get; private set; } 
 
         [TempData]
         public string logged_in { get; set; }
 
         public void OnGet()
         {
-            //TESTING:
+            //TESTING -- now deprecated, using TempData to store login:
             //if (string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyEmail)))
             //{
             //    HttpContext.Session.SetString(SessionKeyEmail, "email");
             //    HttpContext.Session.SetString(SessionKeyPassword, "password");
             //}
-
-            //var email = HttpContext.Session.SetString(SessionKeyEmail);
-            //var password = HttpContext.Session.SetString(SessionKeyPassword);
-            System.Diagnostics.Debug.WriteLine("OnGet");
         }
 
         public IActionResult OnPostAsync()
         {
-            System.Diagnostics.Debug.WriteLine("OnPostAsync");
+            //System.Diagnostics.Debug.WriteLine("OnPostAsync");
             var email = Request.Form["emailLogIn"];
             var password = Request.Form["passwordLogIn"];
             Users = MyUsersService.GetUsers();
@@ -69,7 +59,7 @@ namespace Adm4379Example.Pages
         
         public IActionResult ValidateLogin(string email, string password)
         {
-            System.Diagnostics.Debug.WriteLine("IActionResult ValidateLogin");
+            //System.Diagnostics.Debug.WriteLine("IActionResult ValidateLogin");
             Users = MyUsersService.GetUsers();
             var returnVal = Page();
 
