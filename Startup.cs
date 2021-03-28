@@ -35,6 +35,7 @@ namespace Adm4379Example
             );
             services.AddSingleton<CountriesService>();
             services.AddSingleton<CasesService>();
+            services.AddSingleton<UsersService>();
             
             services.AddRazorPages();
             services.AddTransient<JsonCountriesReaderService>();
