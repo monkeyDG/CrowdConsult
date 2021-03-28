@@ -39,6 +39,15 @@ namespace Adm4379Example
             services.AddRazorPages();
             services.AddTransient<JsonCountriesReaderService>();
             services.AddTransient<JsonCasesReaderService>();
+            
+            //session management for login. Yes it's hacky and should use Identity and Authentication frameworks but this is faster
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +70,8 @@ namespace Adm4379Example
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

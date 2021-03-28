@@ -1,4 +1,5 @@
 @page
+@using Microsoft.AspNetCore.Http
 @model CaseModel
 @{
     ViewData["Title"] = "Business case details";
@@ -47,7 +48,8 @@
                         </div>
                     </div>
                 </div>
-                @if (HttpContext.Current.Session["company_path"]!= null) {
+
+                @if (string.IsNullOrEmpty(HttpContext.Session.GetString(CaseModel.SessionKeyEmail))) {
                     <div>
                         <h2>NEED TO ADD LOGIN CHECK FOR THIS DIV -- Respond to this business case</h2>
                         <div>

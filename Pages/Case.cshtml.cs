@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Adm4379Example.services;
 using Adm4379Example.Model;
 using Adm4379Example.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace Adm4379Example.Pages
 {
@@ -37,12 +38,28 @@ namespace Adm4379Example.Pages
             MyCountriesService = counServ;
             MyCasesService = caseServ;
         }
+        
+        public const string SessionKeyEmail = "";
+        public const string SessionKeyPassword = "";
 
+        //TODO: delete below
+        public string SessionInfo_Email { get; private set; }
+        public string SessionInfo_Password { get; private set; } 
 
         public void OnGet()
         {
             Countries = MyCountriesService.GetCountries();
             Cases = MyCasesService.GetCases();
+
+            //TESTING:
+            //if (string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyEmail)))
+            //{
+            //    HttpContext.Session.SetString(SessionKeyEmail, "email");
+            //    HttpContext.Session.SetString(SessionKeyPassword, "password");
+            //}
+
+            //var email = HttpContext.Session.SetString(SessionKeyEmail);
+            //var password = HttpContext.Session.SetString(SessionKeyPassword);
         }
         
         public bool caseFound = false;
