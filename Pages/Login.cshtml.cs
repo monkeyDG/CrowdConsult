@@ -23,7 +23,6 @@ namespace Adm4379Example.Pages
             _logger = logger;
             MyUsersService = usersServ;
         }
-
         public const string SessionKeyEmail = "";
         public const string SessionKeyPassword = "";
 
@@ -31,6 +30,8 @@ namespace Adm4379Example.Pages
         public string SessionInfo_Email { get; private set; }
         public string SessionInfo_Password { get; private set; } 
 
+        [TempData]
+        public string logged_in { get; set; }
 
         public void OnGet()
         {
@@ -44,7 +45,7 @@ namespace Adm4379Example.Pages
             //var email = HttpContext.Session.SetString(SessionKeyEmail);
             //var password = HttpContext.Session.SetString(SessionKeyPassword);
         }
-        
+
         public IActionResult ValidateLogin(string email, string password)
         {
             Users = MyUsersService.GetUsers();
@@ -52,7 +53,8 @@ namespace Adm4379Example.Pages
 
             foreach (var user in Users) {
                 if (email == user.email && password == user.password) {
-                    HttpContext.Session.SetString("username", email);
+                    //HttpContext.Session.SetString("username", email);
+                    logged_in = user.email;
                     return RedirectToPage("Dashboard");
                 } else {
                     return Page();

@@ -42,12 +42,18 @@ namespace Adm4379Example
             
             //session management for login. Yes it's hacky and should use Identity and Authentication frameworks but this is faster
             services.AddDistributedMemoryCache();
+            services.AddControllersWithViews()
+                    .AddSessionStateTempDataProvider();
+            services.AddRazorPages()
+                    .AddSessionStateTempDataProvider();
 
-            services.AddSession(options =>
-            {
-                options.Cookie.HttpOnly = true;
-                options.Cookie.IsEssential = true;
-            });
+            services.AddSession();
+
+            //services.AddSession(options =>
+            //{
+            //    options.Cookie.HttpOnly = true;
+            //    options.Cookie.IsEssential = true;
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

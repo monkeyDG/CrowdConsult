@@ -49,9 +49,10 @@
                     </div>
                 </div>
 
-                @if (string.IsNullOrEmpty(HttpContext.Session.GetString(CaseModel.SessionKeyEmail))) {
+                //@if (string.IsNullOrEmpty(HttpContext.Session.GetString(CaseModel.SessionKeyEmail))) {
+                @if (TempData.Peek("logged_in") != null) {
                     <div>
-                        <h2>NEED TO ADD LOGIN CHECK FOR THIS DIV -- Respond to this business case</h2>
+                        <h2>Respond to this business case</h2>
                         <div>
                             <form>
                                 <textarea id="response" name="response" placeholder="Write your response..." style="height:300px"></textarea>
@@ -67,10 +68,10 @@
                         <div style="text-align: left;">
                             <div class="flex-wrapper">
                                 <div class="box2">
-                                    <h2 class="responder_name">@response.response_name</h2>
+                                    <h2 class="responder_name">@response.response_user</h2>
                                     <p class="responder_date" id="response_datetime"></p>    
                                     <script>
-                                        var responseDatetime = convertEpoch(@response.datetime);
+                                        var responseDatetime = convertEpoch(@response.response_datetime);
                                         document.getElementById("response_datetime").innerHTML = "<b>Date Posted: </b>" + response.response_Datetime;
                                     </script>
                                     <br>
