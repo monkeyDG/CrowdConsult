@@ -47,7 +47,7 @@
                         </div>
                     </div>
                 </div>
-                @if (HttpContext.Session.username != "") {
+                @if (HttpContext.Current.Session["company_path"]!= null) {
                     <div>
                         <h2>NEED TO ADD LOGIN CHECK FOR THIS DIV -- Respond to this business case</h2>
                         <div>

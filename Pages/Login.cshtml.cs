@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using Adm4379Example.services;
 using Adm4379Example.Model;
 using Adm4379Example.Services;
+using Microsoft.AspNetCore.Http;
 
 namespace Adm4379Example.Pages
 {
@@ -26,16 +27,17 @@ namespace Adm4379Example.Pages
         public IActionResult ValidateLogin(string email, string password)
         {
             Users = MyUsersService.GetUsers();
-            print(Users)
+            var returnVal = Page();
 
-            for user in Users {
-                if email == Users.email && password = Users.password {
+            foreach (var user in Users) {
+                if (email == user.email && password == user.password) {
                     HttpContext.Session.SetString("username", email);
                     return RedirectToPage("Dashboard");
                 } else {
                     return Page();
                 }
             }
+        return returnVal;
         }
     }
 }
