@@ -39,23 +39,17 @@ namespace Adm4379Example.Pages
             MyCasesService = caseServ;
         }
         
-        public const string SessionKeyEmail = "";
-        public const string SessionKeyPassword = "";
-
-        //TODO: delete below
-        public string SessionInfo_Email { get; private set; }
-        public string SessionInfo_Password { get; private set; } 
-
+       
         public void OnGet()
         {
             Countries = MyCountriesService.GetCountries();
             Cases = MyCasesService.GetCases();
 
             //TESTING:
-            //if (string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyEmail)))
-            //{
-            //    HttpContext.Session.SetString(SessionKeyEmail, "email");
-            //    HttpContext.Session.SetString(SessionKeyPassword, "password");
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyEmail)))
+            {
+                HttpContext.Session.SetString(SessionKeyEmail, "email");
+                HttpContext.Session.SetString(SessionKeyPassword, "password");
             //}
 
             //var email = HttpContext.Session.SetString(SessionKeyEmail);
