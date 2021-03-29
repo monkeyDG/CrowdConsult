@@ -58,23 +58,5 @@ namespace Adm4379Example.Pages
             }
             return returnVal;
         }
-        
-        public IActionResult ValidateLogin(string email, string password)
-        {
-            //System.Diagnostics.Debug.WriteLine("IActionResult ValidateLogin");
-            Users = MyUsersService.GetUsers();
-            var returnVal = Page();
-
-            foreach (var user in Users) {
-                if (email == user.email && password == user.password) {
-                    //HttpContext.Session.SetString("username", email);
-                    logged_in = user.email;
-                    return RedirectToPage("Dashboard");
-                } else {
-                    return Page();
-                }
-            }
-        return returnVal;
-        }
     }
 }

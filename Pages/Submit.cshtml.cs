@@ -40,6 +40,25 @@ namespace Adm4379Example.Pages
             MyUsersService = usersServ;
         }
 
+        public IActionResult OnPostAsync()
+        {
+            //System.Diagnostics.Debug.WriteLine("OnPostAsync");
+            var company = Request.Form["company"];
+            var title = Request.Form["title"];
+            var country = Request.Form["country"];
+            var bounty = Request.Form["bounty"];
+            var tags = Request.Form["tags"];
+            var subject = Request.Form["subject"];
+
+            var newCase = new Model.Cases {
+                //id = 
+            };
+            
+
+            MyCasesService.Create(newCase);
+
+            return RedirectToPage("Active");
+        }
 
         public void OnGet()
         {

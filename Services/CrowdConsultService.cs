@@ -40,10 +40,10 @@ namespace Adm4379Example.Services {
             return _cases.Find(cases => true).ToList();
         }
         public void Update(Cases casesUp) {
-            _cases.ReplaceOne(cases => cases.mongo_id == casesUp.mongo_id, casesUp);
+            _cases.ReplaceOne(cases => cases.id == casesUp.id, casesUp);
         }
         public void Remove(string id) {
-            _cases.DeleteOne(cases => cases.mongo_id == id);
+            _cases.DeleteOne(cases => cases.id == id);
         }
     }   
     public class UsersService {

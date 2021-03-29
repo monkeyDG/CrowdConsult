@@ -48,16 +48,6 @@ namespace Adm4379Example.Pages
             Countries = MyCountriesService.GetCountries();
             Cases = MyCasesService.GetCases();
             Users = MyUsersService.GetUsers();
-
-            //TESTING:
-            //if (string.IsNullOrEmpty(HttpContext.Session.GetString(SessionKeyEmail)))
-            //{
-            //    HttpContext.Session.SetString(SessionKeyEmail, "email");
-            //    HttpContext.Session.SetString(SessionKeyPassword, "password");
-            //}
-
-            //var email = HttpContext.Session.SetString(SessionKeyEmail);
-            //var password = HttpContext.Session.SetString(SessionKeyPassword);
         }
         
         public bool caseFound = false;
