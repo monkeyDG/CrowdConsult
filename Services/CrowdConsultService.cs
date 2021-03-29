@@ -19,10 +19,10 @@ namespace Adm4379Example.Services {
             return _countries.Find(countries => true).ToList();
         }
         public void Update(Countries countriesUp) {
-            _countries.ReplaceOne(countries => countries.mongo_id == countriesUp.mongo_id, countriesUp);
+            _countries.ReplaceOne(countries => countries.id == countriesUp.id, countriesUp);
         }
         public void Remove(string id) {
-            _countries.DeleteOne(countries => countries.mongo_id == id);
+            _countries.DeleteOne(countries => countries.id == id);
         }
     }
     public class CasesService {
