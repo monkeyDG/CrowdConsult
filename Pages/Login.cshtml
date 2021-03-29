@@ -11,6 +11,9 @@
     </head>
     <body>
         <div class="wrapper">
+            @if (HttpContext.Request.Query["success"] == "false") {
+                <h6 class="center">Unable to log in. Please create an account or try again.</h6>
+            }
             <div id="signUpDiv">
                 <h1><span>Create a New Account</span></h1>
                 <div class="container">

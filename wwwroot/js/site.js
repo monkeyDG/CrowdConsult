@@ -113,12 +113,14 @@ function validateCaseSubmission() {
     return false;
 };
 
-function validateResponseSubmission() {
+function validateResponseSubmission() { // required to prevent null value from being passed to c# append response service
     var content = document.getElementById("response_content")
     if (content.value ==="") {
         alert("Please enter a response");
         content.focus();
+        return false
     }
+    return true
 }
 
 function validateContactForm() {

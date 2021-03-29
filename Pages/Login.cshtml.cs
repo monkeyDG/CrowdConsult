@@ -53,7 +53,7 @@ namespace Adm4379Example.Pages
                     logged_in = user.email;
                     return RedirectToPage("Dashboard");
                 } else {
-                    return Page();
+                    return Redirect("/Login?success=false");
                 }
             }
             return returnVal;

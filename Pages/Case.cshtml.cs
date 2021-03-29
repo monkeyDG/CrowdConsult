@@ -47,7 +47,7 @@ namespace Adm4379Example.Pages
             TimeSpan t = DateTime.UtcNow - new DateTime(1970, 1, 1);
             int msSinceEpoch = (int)t.TotalSeconds*1000; // gets us the ms since epoch, which is the datetime format used throughout this project
 
-            string case_id = HttpContext.Request.Query["id"]; // parses the case ID from the URL query string
+            string case_id = Request.Form["case_id"]; // uses a hidden field to pass the case id which was parsed from the query string
 
             List<Model.Responses> emptyResponses = new List<Model.Responses>();
 
@@ -60,7 +60,7 @@ namespace Adm4379Example.Pages
             
             MyCasesService.addResponse(newResponse, case_id);
 
-            return RedirectToPage("Active");
+            return Redirect("/Case?id=" + case_id);
         }
 
         public void OnGet()

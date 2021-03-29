@@ -61,15 +61,17 @@
 
                     //@if (string.IsNullOrEmpty(HttpContext.Session.GetString(CaseModel.SessionKeyEmail))) { <----- DEPRECATED IN FAVOR OF TempData BELOW FOR LOGIN CHECK:
                     @if (TempData.Peek("logged_in") != null) {
+                        @if (1==1) {}
                         <div>
                             <h2>Respond to this business case</h2>
                             <div>
                                 <form asp-page-handler="button" onsubmit="return validateResponseSubmission()" method="post">
                                     <textarea id="response_content" name="response_content" placeholder="Write your response..." style="height:300px"></textarea>
+                                    <input type="hidden" id="case_id" name="case_id" value="@bcase.id">
+                                    <input type="submit" value="Submit" id="submit_response_btn">
                                 </form>
                                 <br>
-                            </div>  
-                            <input type="submit" value="Submit Response">
+                            </div>
                         </div>
                     } else {
                         <div>
