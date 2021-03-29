@@ -10,14 +10,14 @@ window.onscroll = function(){
     var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     var scrolled = (winScroll / height) * 100;
     progress.style.height = scrolled + "%";
-}
+};
 
 // Human-readable Date and Time for Case.cshtml to convert epoch to datetime, by saving the value as a Date type instead of long and converting to a string with built-in js methods
 function convertEpoch(postDate)
 {
     result = new Date(postDate);
     return result.toLocaleString();
-}
+};
 
 // Time Elapsed function for Active.cshtml to see when a case was posted
 function timeElapsed(postDate) {
@@ -85,7 +85,7 @@ function nameIsValid(name) {
 
 function emailIsValid(email) { //regex check for email-allowable characters
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
+};
 
 function validateCaseSubmission() {
     var company = document.getElementById("company");
@@ -121,7 +121,7 @@ function validateResponseSubmission() { // required to prevent null value from b
         return false
     }
     return true
-}
+};
 
 function validateContactForm() {
     var emailContact = document.getElementById("emailContact");
@@ -201,11 +201,11 @@ function toSignUp() {
     var signUpDiv = document.getElementById("signUpDiv");
     logInDiv.style.display = "none";
     signUpDiv.style.display = "block";
-}
+};
 
 function toLogIn() {
     var logInDiv = document.getElementById("logInDiv");
     var signUpDiv = document.getElementById("signUpDiv");
     logInDiv.style.display = "block";
     signUpDiv.style.display = "none";
-}
+};
