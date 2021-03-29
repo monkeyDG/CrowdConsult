@@ -40,13 +40,15 @@ namespace Adm4379Example.Pages
         public IActionResult OnPostAsync()
         {
             //System.Diagnostics.Debug.WriteLine("OnPostAsync");
-            var email = Request.Form["emailLogIn"];
-            var password = Request.Form["passwordLogIn"];
+            var emailLogIn = Request.Form["emailLogIn"];
+            var passwordLogIn = Request.Form["passwordLogIn"];
+            var emailSignUp = Request.Form["emailSignUp"];
+            var passwordSignUp = Request.Form["passwordSignUp"];
             Users = MyUsersService.GetUsers();
             var returnVal = Page();
 
             foreach (var user in Users) {
-                if (email == user.email && password == user.password) {
+                if ((emailLogIn == user.email && passwordLogIn == user.password) || (emailSignUp == user.email && passwordSignUp == user.password)) {
                     //HttpContext.Session.SetString("username", email);
                     logged_in = user.email;
                     return RedirectToPage("Dashboard");

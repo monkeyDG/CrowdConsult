@@ -11,91 +11,101 @@
         <script src="js/site.js"></script>
     </head>
     <body>
-        <div id="signUpDiv">
-            <h1><span>Create a New Account</span></h1>
-            <div class="container">
-                <form action="SignUp" onsubmit="return validateSignUp()" method="POST"> 
-                    <!-- above line validates the form when submitted. SignUp is not yet built to accept form inputs -- this will be connected to mongodb for Create operations.
-                    We can use javascript local storage to store the values we want to add to mongodb if we want to do additional client-side validation first, since description text will be too long to pass by URL string query -->
-                    <div class="row">
-                        <div class="col25percent">
-                            <label for="nameSignUp">Full Name</label>
+        <div class="wrapper">
+            <div id="signUpDiv">
+                <h1><span>Create a New Account</span></h1>
+                <div class="container">
+                    <form asp-page-handler="button" onsubmit="return validateSignUP()" method="post">
+                        <!-- above line validates the form when submitted. SignUp is not yet built to accept form inputs -- this will be connected to mongodb for Create operations.
+                        We can use javascript local storage to store the values we want to add to mongodb if we want to do additional client-side validation first, since description text will be too long to pass by URL string query -->
+                        <div class="row">
+                            <div class="col25percent">
+                                <label for="nameSignUp">Full Name</label>
+                            </div>
+                            <div class="col75percent">
+                                <input type="text" id="nameSignUp" name="nameSignUp" placeholder="John Smith">
+                            </div>
                         </div>
-                        <div class="col75percent">
-                            <input type="text" id="nameSignUp" name="nameSignUp" placeholder="John Smith">
+                        <div class="row">
+                            <div class="col25percent">
+                                <label for="emailSignUp">Email Address</label>
+                            </div>
+                            <div class="col75percent">
+                                <input type="text" id="emailSignUp" name="emailSignUp" placeholder="example@email.com">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col25percent">
-                            <label for="emailSignUp">Email Address</label>
+                        <div class="row">
+                            <div class="col25percent">
+                                <label for="phoneSignUp">Phone Number</label>
+                            </div>
+                            <div class="col75percent">
+                                <input type="text" id="phoneSignUp" name="phoneSignUp" placeholder="+X (XXX) XXX-XXXX">
+                            </div>
                         </div>
-                        <div class="col75percent">
-                            <input type="text" id="emailSignUp" name="emailSignUp" placeholder="example@email.com">
+                        <div class="row">
+                            <div class="col25percent">
+                                <label for="locationSignUp">Location</label>
+                            </div>
+                            <div class="col75percent">
+                                <input type="text" id="locationSignUp" name="locationSignUp" placeholder="City, Country">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col25percent">
-                            <label for="phoneSignUp">Phone Number</label>
+                        <div class="row">
+                            <div class="col25percent">
+                                <label for="passwordSignUp">Create a Password</label>
+                            </div>
+                            <div class="col75percent">
+                                <input type="password" id="passwordSignUp" name="passwordSignUp">
+                            </div>
                         </div>
-                        <div class="col75percent">
-                            <input type="text" id="phoneSignUp" name="phoneSignUp" placeholder="+X (XXX) XXX-XXXX">
+                        <div class="row">
+                            <div class="col25percent">
+                                <label for="pictureSignUp" value="https://i.imgur.com/6HAmGNz.png">Link your picture</label>
+                            </div>
+                            <div class="col75percent">
+                                <input type="text" id="pictureSignUp" name="pictureSignUp">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col25percent">
-                            <label for="locationSignUp">Location</label>
+                        <div class="row" style="text-align: center; justify-content: center">
+                            <button class="btn2" style="background-color: #ffd900">Sign Up</button>
                         </div>
-                        <div class="col75percent">
-                            <input type="text" id="locationSignUp" name="locationSignUp" placeholder="City, Country">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col25percent">
-                            <label for="passwordSignUp">Create a Password</label>
-                        </div>
-                        <div class="col75percent">
-                            <input type="password" id="passwordSignUp" name="passwordSignUp">
-                        </div>
-                    </div>
-                    <div class="row" style="text-align: center; justify-content: center">
-                        <button class="btn2" style="background-color: #ffd900">Sign Up</button>
-                    </div>
-                </form>
+                    </form>
+                </div>
+                
+                <div style="text-align: center">
+                    <button class="btn" onclick="toLogIn()">I already have an account</button>
+                </div>
             </div>
-            
-            <div style="text-align: center">
-                <button class="btn" onclick="toLogIn()">I already have an account</button>
-            </div>
-        </div>
-        <div id="logInDiv" style="display: none">
-            <h1><span>Log In to Your Account</span></h1>
-            <div class="container">
-                <form asp-page-handler="button" onsubmit="return validateLogIn()" method="post"> 
-                    <!-- above line validates the form when submitted. SignUp is not yet built to accept form inputs -- this will be connected to mongodb for Create operations.
-                    We can use javascript local storage to store the values we want to add to mongodb if we want to do additional client-side validation first, since description text will be too long to pass by URL string query -->
-                    <div class="row">
-                        <div class="col25percent">
-                            <label for="emailLogIn">Email Address</label>
+            <div id="logInDiv" style="display: none">
+                <h1><span>Log In to Your Account</span></h1>
+                <div class="container">
+                    <form asp-page-handler="button" onsubmit="return validateLogIn()" method="post"> 
+                        <!-- above line validates the form when submitted. SignUp is not yet built to accept form inputs -- this will be connected to mongodb for Create operations.
+                        We can use javascript local storage to store the values we want to add to mongodb if we want to do additional client-side validation first, since description text will be too long to pass by URL string query -->
+                        <div class="row">
+                            <div class="col25percent">
+                                <label for="emailLogIn">Email Address</label>
+                            </div>
+                            <div class="col75percent">
+                                <input type="text" id="emailLogIn" name="emailLogIn" placeholder="example@email.com">
+                            </div>
                         </div>
-                        <div class="col75percent">
-                            <input type="text" id="emailLogIn" name="emailLogIn" placeholder="example@email.com">
+                        <div class="row">
+                            <div class="col25percent">
+                                <label for="passwordLogIn">Password</label>
+                            </div>
+                            <div class="col75percent">
+                                <input type="password" id="passwordLogIn" name="passwordLogIn">
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col25percent">
-                            <label for="passwordLogIn">Password</label>
+                        <div class="row" style="text-align: center; justify-content: center">
+                            <button class="btn2" style="background-color: #ffd900">Log In</button>
                         </div>
-                        <div class="col75percent">
-                            <input type="password" id="passwordLogIn" name="passwordLogIn">
-                        </div>
-                    </div>
-                    <div class="row" style="text-align: center; justify-content: center">
-                        <button class="btn2" style="background-color: #ffd900">Log In</button>
-                    </div>
-                </form>
-            </div>
-            <div style="text-align: center">
-                <button class="btn" onclick="toSignUp()">I don't have an account</button>
+                    </form>
+                </div>
+                <div style="text-align: center">
+                    <button class="btn" onclick="toSignUp()">I don't have an account</button>
+                </div>
             </div>
         </div>
     </body>

@@ -134,6 +134,10 @@ nav-link:hover {
 
 /* Divs and spacing */
 
+.wrapper {
+    min-height: calc(100vh - 651px);    
+}
+
 flex-wrapper {
     display: flex;
     grid-gap: 20px;

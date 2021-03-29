@@ -11,68 +11,82 @@
         <script src="js/site.js"></script>
     </head>
     <body>
-        <h1><span>Submit a Business Case</span></h1>
-        <div class="container">
-            <form action="CreateCase" onsubmit="return validateCaseSubmission()" method="POST"> 
-                <!-- above line validates the form when submitted. CreateCase is not yet built to accept form inputs -- this will be connected to mongodb for Create operations.
-                We can use javascript local storage to store the values we want to add to mongodb if we want to do additional client-side validation first, since description text will be too long to pass by URL string query -->
-                <div class="row">
-                    <div class="col25percent">
-                        <label for="fname">Full Name</label>
-                    </div>
-                    <div class="col75percent">
-                        <input type="text" id="fullname" name="fullname" placeholder="Your name">
-                    </div>
+        <div class="wrapper">
+            @if (TempData.Peek("logged_in") != null) {
+                @foreach (var user in Model.Users)
+                {
+                    @if (user.email == TempData.Peek("logged_in").ToString()) {
+                        <h1><span>Submit a Business Case</span></h1>
+                        <div class="container">
+                            <form action="CreateCase" onsubmit="return validateCaseSubmission()" method="POST">
+                                <div class="row">
+                                    <div class="col25percent">
+                                        <label for="company">Company</label>
+                                    </div>
+                                    <div class="col75percent">
+                                        <input type="text" id="company" name="company" placeholder="company" value="@user.company">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col25percent">
+                                        <label for="title">Business Problem Title</label>
+                                    </div>
+                                    <div class="col75percent">
+                                        <input type="text" id="title" name="title" placeholder="Concise and searchable title">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col25percent">
+                                        <label for="country">Country</label>
+                                    </div>
+                                    <div class="col75percent">
+                                        <select id="country" name="country">
+                                        @foreach (var country in Model.Countries)
+                                        {
+                                            <option value="@country.country_code">@country.name</option>
+                                        }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col25percent">
+                                        <label for="bounty">Bounty</label>
+                                    </div>
+                                    <div class="col75percent">
+                                        <input type="text" id="bounty" name="bounty" placeholder="CAD$">
+                                    </div>
+                                </div>
+                                    <div class="row">
+                                    <div class="col25percent">
+                                        <label for="tags">Tags</label>
+                                    </div>
+                                    <div class="col75percent">
+                                        <input type="text" id="tags" name="tags" placeholder="Relevant tags">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col25percent">
+                                        <label for="subject">Business Problem Description</label>
+                                    </div>
+                                    <div class="col75percent">
+                                        <textarea id="subject" name="subject" placeholder="Write something..." style="height:200px"></textarea>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <input type="submit" value="Submit" id="submit_btn">
+                                </div>
+                            </form>
+                        </div>
+                        break;
+                    } else {
+                        <h6 class="center">Error: No User Information Found</h6>
+                    }
+                }
+            } else {
+                <div>
+                    <a class="underline center" href="/Login"><h6>You must login or create an account to submit a business case</h6></a>
                 </div>
-                <div class="row">
-                    <div class="col25percent">
-                        <label for="title">Business Problem Title</label>
-                    </div>
-                    <div class="col75percent">
-                        <input type="text" id="title" name="title" placeholder="Concise and searchable title">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col25percent">
-                        <label for="country">Country</label>
-                    </div>
-                    <div class="col75percent">
-                        <select id="country" name="country">
-                        @foreach (var country in Model.Countries)
-                        {
-                            <option value="@country.country_code">@country.name</option>
-                        }
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col25percent">
-                        <label for="bounty">Bounty</label>
-                    </div>
-                    <div class="col75percent">
-                        <input type="text" id="bounty" name="bounty" placeholder="CAD$">
-                    </div>
-                </div>
-                    <div class="row">
-                    <div class="col25percent">
-                        <label for="tags">Tags</label>
-                    </div>
-                    <div class="col75percent">
-                        <input type="text" id="tags" name="tags" placeholder="Relevant tags">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col25percent">
-                        <label for="subject">Business Problem Description</label>
-                    </div>
-                    <div class="col75percent">
-                        <textarea id="subject" name="subject" placeholder="Write something..." style="height:200px"></textarea>
-                    </div>
-                </div>
-                <div class="row">
-                    <input type="submit" value="Submit" id="submit_btn">
-                </div>
-            </form>
+            }
         </div>
     </body>
 </html>

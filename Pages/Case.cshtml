@@ -11,88 +11,100 @@
         <script src="js/site.js"></script>
     </head>
     <body>
-        <!-- HttpContext.Request.Query gets the query string with the key "id" ("?id=X" from the URL), which we need in order to know what case to load -->
-        <!-- id is saved as a string in the data model to avoid type conversion here -->
-        <!-- we compare the ids for the cases in the database (or for now in the json file) and display it if it's found. IDs must be unique for this to work -->
-        @foreach (var bcase in Model.Cases) { 
-            @if (HttpContext.Request.Query["id"] == bcase.id) {
-                Model.caseFound = true;
-                <h1>@bcase.title</h1>
-                <div class="case_debrief">
-                    <div>
-                        <h7 class="h7 center">@bcase.company</h7>
-                        <p class="case_debrief_font">
-                            <b>Keywords: </b> 
-                            @bcase.tags
-                        </p>
-                        <p class="case_debrief_font">
-                            <b>Country: </b> 
-                            @bcase.country
-                        </p>
-                        <p class="case_debrief_font">
-                            <b>Bounty: </b> 
-                            CAD$ @bcase.bounty
-                        </p>
-                        <p class="case_debrief_font" id="datetime"></p>    
-                        <script>
-                            var datetime = convertEpoch(@bcase.datetime);
-                            document.getElementById("datetime").innerHTML = "<b>Date Posted: </b>" + datetime;
-                        </script>
-                    </div>
-                </div>
-                <div>
-                    <h2>Full Case</h2>
-                    <div class="flex-wrapper">
-                        <div class="box2">
-                            <p class ="case_full_font">@bcase.description</p>
+        <div class="wrapper">
+            <!-- HttpContext.Request.Query gets the query string with the key "id" ("?id=X" from the URL), which we need in order to know what case to load -->
+            <!-- id is saved as a string in the data model to avoid type conversion here -->
+            <!-- we compare the ids for the cases in the database and display it if it's found. IDs must be unique for this to work -->
+            @foreach (var bcase in Model.Cases) { 
+                @if (HttpContext.Request.Query["id"] == bcase.id) {
+                    Model.caseFound = true;
+                    <h1>@bcase.title</h1>
+                    <div class="case_debrief">
+                        <div>
+                            <h7 class="h7 center">@bcase.company</h7>
+                                @foreach (var user in Model.Users)
+                                {
+                                    @if (user.email == bcase.user_email) {
+                                        <p class="case_debrief_font">
+                                            <b>Posted by: </b> 
+                                            <a class="underline" href="/User?id=@user.id">@user.name</a>
+                                        </p>
+                                    }   
+                                }
+                            <p class="case_debrief_font">
+                                <b>Keywords: </b> 
+                                @bcase.tags
+                            </p>
+                            <p class="case_debrief_font">
+                                <b>Country: </b> 
+                                @bcase.country
+                            </p>
+                            <p class="case_debrief_font">
+                                <b>Bounty: </b> 
+                                CAD$ @bcase.bounty
+                            </p>
+                            <p class="case_debrief_font" id="datetime"></p>    
+                            <script>
+                                var datetime = convertEpoch(@bcase.datetime);
+                                document.getElementById("datetime").innerHTML = "<b>Date Posted: </b>" + datetime;
+                            </script>
                         </div>
                     </div>
-                </div>
-
-                //@if (string.IsNullOrEmpty(HttpContext.Session.GetString(CaseModel.SessionKeyEmail))) {
-                @if (TempData.Peek("logged_in") != null) {
                     <div>
-                        <h2>Respond to this business case</h2>
-                        <div>
-                            <form>
-                                <textarea id="response" name="response" placeholder="Write your response..." style="height:300px"></textarea>
-                            </form>
-                            <br>
-                        </div>  
-                        <input type="submit" value="Submit Response">
-                    </div>
-                } else {
-                    <div>
-                        <a class="underline center" href="/Login"><h6>You must login to post a reponse to this business case</h6></a>
-                    </div>
-                }
-                <div>
-                    <h2>Responses</h2>
-                    @foreach (var response in bcase.Responses) { 
-                        <div style="text-align: left;">
-                            <div class="flex-wrapper">
-                                <div class="box2">
-                                    @foreach (var user in Model.Users) { 
-                                        @if (response.response_user == user.id) {
-                                            <a class="underline" href="/User?id=@user.id"><h2 class="responder_name nopad">@user.name</h2></a>
-                                        }
-                                    }
-                                    <p class="responder_date" id="response_datetime_@response.response_user"></p>    
-                                    <script>
-                                        var legibleDate = convertEpoch(@response.response_datetime);
-                                        document.getElementById("response_datetime_@response.response_user").innerHTML = "<b>Date Posted: </b>" + legibleDate;
-                                    </script>
-                                    <p class ="case_full_font">@response.response_description</p> 
-                                </div> 
+                        <h2>Full Case</h2>
+                        <div class="flex-wrapper">
+                            <div class="box2">
+                                <p class ="case_full_font">@bcase.description</p>
                             </div>
                         </div>
+                    </div>
+
+                    //@if (string.IsNullOrEmpty(HttpContext.Session.GetString(CaseModel.SessionKeyEmail))) { <----- DEPRECATED IN FAVOR OF TempData BELOW FOR LOGIN CHECK:
+                    @if (TempData.Peek("logged_in") != null) {
+                        <div>
+                            <h2>Respond to this business case</h2>
+                            <div>
+                                <form>
+                                    <textarea id="response" name="response" placeholder="Write your response..." style="height:300px"></textarea>
+                                </form>
+                                <br>
+                            </div>  
+                            <input type="submit" value="Submit Response">
+                        </div>
+                    } else {
+                        <div>
+                            <a class="underline center" href="/Login"><h6>You must login to post a reponse to this case</h6></a>
+                        </div>
                     }
-                </div>
+                    <div>
+                        <h2>Responses</h2>
+                        @foreach (var response in bcase.Responses) { 
+                            <div style="text-align: left;">
+                                <div class="flex-wrapper">
+                                    <div class="box2">
+                                        @foreach (var user in Model.Users) { 
+                                            @if (response.response_user == user.email) {
+                                                <a class="underline" href="/User?id=@user.email"><h2 class="responder_name nopad">@user.name</h2></a>
+                                            }
+                                        }
+                                        <p class="responder_date" id="response_datetime_@response.response_user"></p>    
+                                        <script>
+                                            var legibleDate = convertEpoch(@response.response_datetime);
+                                            document.getElementById("response_datetime_@response.response_user").innerHTML = "<b>Date Posted: </b>" + legibleDate;
+                                        </script>
+                                        <p class ="case_full_font">@response.response_description</p> 
+                                    </div> 
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    break;
+                }
             }
-        }
-        @if (Model.caseFound == false) {
-            <h1>Sorry, we can't find that business case.</h1>
-            <div class="center"><button class="btn2" onclick="location.href='/Active';">Go back to active business cases</button></div>
-        }
+            @if (Model.caseFound == false) {
+                <h1>Sorry, we can't find that business case.</h1>
+                <div class="center"><button class="btn2" onclick="location.href='/Active';">Go back to active business cases</button></div>
+            }
+        </div>
     </body>
 </html>

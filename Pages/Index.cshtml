@@ -8,14 +8,16 @@
         <link rel="stylesheet" href="site.css"> 
     </head>
     <body class="homepage">
-        <div class="centerText">
-            <h3>A collaborative platform for business to get tough problems solved and aspiring consultants to solve tough problems.</h3>
-        </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- required for onmouseover/out hover effects -->
-        
-        <div class="centerButton"> <!-- hover effects for homepage buttons. Need to use button type instead of html link to prevent conflict issues with navbar -->
-            <button type="button" id="btnHome1" class="btnHome" onmouseover="hoverText('btnHome1')" onmouseout="unhoverText('btnHome1')" onclick="window.location.href='/Active'">I'm a consultant</a>
-            <button type="button"  id="btnHome2" class="btnHome" onmouseover="hoverText('btnHome2')" onmouseout="unhoverText('btnHome2')" onclick="window.location.href='/Submit'">I'm a business</a>
+        <div class="wrapper">
+            <div class="centerText">
+                <h3>A collaborative platform for business to get tough problems solved and aspiring consultants to solve tough problems.</h3>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- required for onmouseover/out hover effects -->
+            
+            <div class="centerButton"> <!-- hover effects for homepage buttons. Need to use button type instead of html link to prevent conflict issues with navbar -->
+                <button type="button" id="btnHome1" class="btnHome" onmouseover="hoverText('btnHome1')" onmouseout="unhoverText('btnHome1')" onclick="window.location.href='/Active'">I'm a consultant</a>
+                <button type="button"  id="btnHome2" class="btnHome" onmouseover="hoverText('btnHome2')" onmouseout="unhoverText('btnHome2')" onclick="window.location.href='/Submit'">I'm a business</a>
+            </div>
         </div>
     </body>
 </html>

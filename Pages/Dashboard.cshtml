@@ -11,51 +11,65 @@
     </head>
 
     <body>
-        <div class="row">
-            <div class="leftcolumn">
-                <h7 class="h7">My Activity</h7>
-                <!-- the check below should eventually be changed to user that posted instead of case id -->
-                @foreach (var bcase in Model.Cases) { 
-                    @if (@bcase.id == "0" || @bcase.id == "2") {
-                        <div class="card">
-                            <p style="text-align:left;">
-                                <b>@bcase.title</b>
-                                <span style="float:right;">
-                                    <b>Bounty: CAD$ @bcase.bounty</b>
-                                </span>
-                            </p>
-                            <p id="datetime_@bcase.id"></p>
-                            <script>
-                                var datetime = convertEpoch(@bcase.datetime);
-                                document.getElementById("datetime_@bcase.id").innerHTML = "<b>Date Posted: </b>" + datetime;
-                            </script>
-                            <p><b>Num Responses: </b>@bcase.num_responses</p>
-                            <div class="btn-group">
-                                <a href="/Case?id=@bcase.id">
-                                    <button class="btn2">View</button>
-                                </a>
-                                <button class="btn2">Edit</button>
-                                <button class="btnDelete">Delete</button>
+        <div class="wrapper">
+            @if (TempData.Peek("logged_in") != null) {
+                @foreach (var user in Model.Users)
+                {
+                    @if (user.email == TempData.Peek("logged_in").ToString()) {
+                        <div class="row">
+                            <div class="leftcolumn">
+                                <h7 class="h7">My Activity</h7>
+                                @foreach (var bcase in Model.Cases) { 
+                                    @if (@bcase.user_email == TempData.Peek("logged_in").ToString()) {
+                                        <div class="card">
+                                            <p style="text-align:left;">
+                                                <b>@bcase.title</b>
+                                                <span style="float:right;">
+                                                    <b>Bounty: CAD$ @bcase.bounty</b>
+                                                </span>
+                                            </p>
+                                            <p id="datetime_@bcase.id"></p>
+                                            <script>
+                                                var datetime = convertEpoch(@bcase.datetime);
+                                                document.getElementById("datetime_@bcase.id").innerHTML = "<b>Date Posted: </b>" + datetime;
+                                            </script>
+                                            <p><b>Num Responses: </b>@bcase.num_responses</p>
+                                            <div class="btn-group">
+                                                <a href="/Case?id=@bcase.id">
+                                                    <button class="btn2">View</button>
+                                                </a>
+                                                <button class="btn2">Edit</button>
+                                                <button class="btnDelete">Delete</button>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+                            </div>
+                            <div class="rightcolumn">
+                                <div class="card">
+                                    <h7 class="h7">Profile</h7>    
+                                    <img src="@user.picture" class="center" alt="profilePic" width="150">
+                                    <br>
+                                    <dl>
+                                        <dt>@user.name</dt>        
+                                        <dt>@user.location</dt>
+                                        <dt>@user.phone</dt>
+                                        <dt><a href="mailto:@user.email">@user.email</a></dt>
+                                    </dl>
+                                    <button class="btn2">Edit</button>
+                                </div>
                             </div>
                         </div>
+                        break;
+                    } else {
+                        <h6 class="center">Error: No User Information Found</h6>
                     }
                 }
-            </div>
-            <div class="rightcolumn">
-                <div class="card">
-                    <h7 class="h7">Profile</h7>    
-                    <img src="https://i.imgur.com/nHU6zrb.jpg" alt="profilePic" width="150">
-                    <br>
-                    <dl>
-                        <!-- This information will be moved to the database in a json object -->
-                        <dt>John Doe</dt>        
-                        <dt>Ottawa, ON</dt>
-                        <dt>(613)123-4567</dt>
-                        <dt><a href="mailto:john.doe@gmail.com">john.doe@gmail.com</a></dt>
-                    </dl>
-                    <button class="btn2">Edit</button>
+            } else {
+                <div>
+                    <a class="underline center" href="/Login"><h6>You must login to view your dashboard</h6></a>
                 </div>
-            </div>
+            }
         </div>
     </body>
 </html>
