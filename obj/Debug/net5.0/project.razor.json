@@ -15648,6 +15648,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Pages\\Users.cshtml",
+      "TargetPath": "Pages\\Users.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Administrator\\Documents\\GitHub\\CrowdConsult\\Pages\\Active.cshtml",
       "TargetPath": "Pages\\Active.cshtml",
       "FileKind": "mvc"

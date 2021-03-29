@@ -1,0 +1,63 @@
+@page
+@model UsersModel
+@{
+    ViewData["Title"] = "Users";
+}
+
+<html>
+    <head>
+        <title>Users</title>
+        <script src="js/site.js"></script>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            @foreach (var user in Model.Users)
+            {
+                @if (HttpContext.Request.Query["id"] == user.id) {
+                    <div class="row">
+                        <div class="leftcolumn">
+                            @foreach (var bcase in Model.Cases) { 
+                                @if (bcase.user_email == user.email) {
+                                    <div class="card">
+                                        <p style="text-align:left;">
+                                            <b>@bcase.title</b>
+                                            <span style="float:right;">
+                                                <b>Bounty: CAD$ @bcase.bounty</b>
+                                            </span>
+                                        </p>
+                                        <p id="datetime_@bcase.id"></p>
+                                        <script>
+                                            var datetime = convertEpoch(@bcase.datetime);
+                                            document.getElementById("datetime_@bcase.id").innerHTML = "<b>Date Posted: </b>" + datetime;
+                                        </script>
+                                        <p><b>Num Responses: </b>@bcase.num_responses</p>
+                                        <div class="btn-group">
+                                            <a href="/Case?id=@bcase.id">
+                                                <button class="btn2">View</button>
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="rightcolumn">
+                            <div class="card">
+                                <h7 class="h7">Profile</h7>    
+                                <img src="@user.picture" class="center" alt="profilePic" width="150">
+                                <br>
+                                <dl>
+                                    <dt>@user.name</dt>        
+                                    <dt>@user.location</dt>
+                                    <dt>@user.phone</dt>
+                                    <dt><a href="mailto:@user.email">@user.email</a></dt>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                    break;
+                }
+            }
+        </div>
+    </body>
+</html>

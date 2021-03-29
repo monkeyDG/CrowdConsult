@@ -12,14 +12,14 @@ using Adm4379Example.Services;
 
 namespace Adm4379Example.Pages
 {
-    public class DashboardModel : PageModel
+    public class UsersModel : PageModel
     {
-        private readonly ILogger<DashboardModel> _logger;
+        private readonly ILogger<UsersModel> _logger;
         //deprecated, for reading from JSON file -----------------------------------------------
         //private JsonCasesReaderService service; 
         //public IEnumerable<Cases> Cases;
 
-        //public ActiveModel(ILogger<DashboardModel> logger, JsonCasesReaderService jcasesrs)
+        //public ActiveModel(ILogger<UsersModel> logger, JsonCasesReaderService jcasesrs)
         //{
         //    _logger = logger;
         //    service = jcasesrs;
@@ -33,7 +33,7 @@ namespace Adm4379Example.Pages
         public UsersService MyUsersService;
         public IEnumerable<Users> Users;
 
-        public DashboardModel(ILogger<DashboardModel> logger, CountriesService counServ, CasesService caseServ, UsersService usersServ)
+        public UsersModel(ILogger<UsersModel> logger, CountriesService counServ, CasesService caseServ, UsersService usersServ)
         {
             _logger = logger;
             MyCountriesService = counServ;

@@ -27,7 +27,7 @@
                                     @if (user.email == bcase.user_email) {
                                         <p class="case_debrief_font">
                                             <b>Posted by: </b> 
-                                            <a class="underline" href="/User?id=@user.id">@user.name</a>
+                                            <a class="underline" href="/Users?id=@user.id">@user.name</a>
                                         </p>
                                     }   
                                 }
@@ -84,7 +84,7 @@
                                     <div class="box2">
                                         @foreach (var user in Model.Users) { 
                                             @if (response.response_user == user.email) {
-                                                <a class="underline" href="/User?id=@user.email"><h2 class="responder_name nopad">@user.name</h2></a>
+                                                <a class="underline" href="/User?id=@user.id"><h2 class="responder_name nopad">@user.name</h2></a>
                                             }
                                         }
                                         <p class="responder_date" id="response_datetime_@response.response_user"></p>    

@@ -2,8 +2,9 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Scroll bar
-let progress = document.getElementById('scroll');
-let totalHeight = document.body.offsetHeight;
+var progress = document.getElementById('scroll');
+var totalHeight = document.body.offsetHeight;
+
 window.onscroll = function(){
     var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
     var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -87,16 +88,13 @@ function emailIsValid(email) { //regex check for email-allowable characters
 }
 
 function validateCaseSubmission() {
-    const fullname = document.getElementById("fullname");
-    const title = document.getElementById("title");
-    const bounty = document.getElementById("bounty");
-    const subject = document.getElementById("subject");
-    if (fullname.value === "") {
-        alert("Please enter your full name.");
-        fullname.focus();
-    } else if (!nameIsValid(fullname.value)) {
-        alert("Please enter a valid name.");
-        bounty.focus();
+    var company = document.getElementById("company");
+    var title = document.getElementById("title");
+    var bounty = document.getElementById("bounty");
+    var subject = document.getElementById("subject");
+    if (company.value === "") {
+        alert("Please enter your company name.");
+        company.focus();
     } else if (title.value === "") {
         alert("Please enter a title for your problem.");
         title.focus();
