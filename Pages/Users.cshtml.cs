@@ -41,14 +41,19 @@ namespace Adm4379Example.Pages
             MyUsersService = usersServ;
         }
 
-
-        public void OnGet()
+        public IActionResult OnGet()
         {
             Countries = MyCountriesService.GetCountries();
             Cases = MyCasesService.GetCases();
             Users = MyUsersService.GetUsers();
+            foreach (var user in Users) {
+                if (TempData.Peek("logged_in") != null) { // checks if someone is logged in
+                    if (TempData.Peek("logged_in").ToString() == user.email) { // if the user page belongs to the person currently logged in, redirect to the dashboard
+                        return RedirectToPage("Dashboard");
+                    }
+                }
+            }
+            return null;
         }
-        
-        public bool userId = false;
     }
 }

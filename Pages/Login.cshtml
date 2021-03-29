@@ -14,6 +14,9 @@
             @if (HttpContext.Request.Query["success"] == "false") {
                 <h6 class="center">Unable to log in. Please create an account or try again.</h6>
             }
+            @if (HttpContext.Request.Query["success"] == "alreadyexists") {
+                <h6 class="center">A user with that email address is already registerted.</h6>
+            }
             <div id="signUpDiv">
                 <h1><span>Create a New Account</span></h1>
                 <div class="container">
@@ -70,7 +73,7 @@
                         </div>
                         <div class="row">
                             <div class="col25percent">
-                                <label for="pictureSignUp" value="https://i.imgur.com/6HAmGNz.png" placeholder="https://example.com/profile-picture.png">Link your picture</label>
+                                <label for="pictureSignUp" placeholder="https://example.com/profile-picture.png">Link your picture (optional)</label>
                             </div>
                             <div class="col75percent">
                                 <input type="text" id="pictureSignUp" name="pictureSignUp">

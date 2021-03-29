@@ -41,14 +41,13 @@ namespace Adm4379Example.Pages
             MyUsersService = usersServ;
         }
 
-
         public void OnGet()
         {
             Countries = MyCountriesService.GetCountries();
             Cases = MyCasesService.GetCases();
             Users = MyUsersService.GetUsers();
         }
-        
-        public bool userId = false;
+
+        public bool caseFound = false;
     }
 }

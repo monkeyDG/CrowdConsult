@@ -124,8 +124,8 @@ function validateResponseSubmission() { // required to prevent null value from b
 }
 
 function validateContactForm() {
-    const emailContact = document.getElementById("emailContact");
-    const message = document.getElementById("messageContact");
+    var emailContact = document.getElementById("emailContact");
+    var message = document.getElementById("messageContact");
     if (emailContact.value === "") {
         alert("Please enter your email address.");
         emailContact.focus();
@@ -142,10 +142,14 @@ function validateContactForm() {
 };
 
 function validateSignUp() {
-    const emailSignUp = document.getElementById("emailSignUp");
-    const name = document.getElementById("nameSignUp");
-    const location = document.getElementById("locationSignUp");
-    const phone = document.getElementById("phoneSignUp");
+    var emailSignUp = document.getElementById("emailSignUp");
+    var name = document.getElementById("nameSignUp");
+    var location = document.getElementById("locationSignUp");
+    var phone = document.getElementById("phoneSignUp");
+    var picture = document.getElementById("pictureSignUp");
+    var company = document.getElementById("companySignUp");
+    var password = document.getElementById("phoneSignUp");
+
     if (emailSignUp.value === "") {
         alert("Please enter your email address.");
         emailSignUp.focus();
@@ -161,6 +165,12 @@ function validateSignUp() {
     } else if (!emailIsValid(emailSignUp.value)) {
         alert("Please enter a valid email address.");
         emailSignUp.focus();
+    } else if (company.value === "") {
+        alert("Please enter your company name");
+        company.focus();
+    } else if (password.value === "") {
+        alert("Please enter a password");
+        password.focus();
     } else {
         return true; //only goes to the next page/submits if no errors on page
     }

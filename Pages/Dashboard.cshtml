@@ -42,7 +42,11 @@
                                                 <button class="btnDelete">Delete</button>
                                             </div>
                                         </div>
+                                       Model.caseFound = true;
                                     }
+                                }
+                                @if (Model.caseFound == false) {
+                                    <p style="padding: 10px">You don't have any business cases posted yet.</p>
                                 }
                             </div>
                             <div class="rightcolumn">
@@ -61,8 +65,6 @@
                             </div>
                         </div>
                         break;
-                    } else {
-                        <h6 class="center">Error: No User Information Found</h6>
                     }
                 }
             } else {
