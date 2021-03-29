@@ -3,7 +3,6 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace Adm4379Example.Model {
     public class Users {
         [BsonId][BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
-        public string mongo_id { get; set; }
         public string id { get; set; }
         public string name { get; set; }
         public string company { get; set; }

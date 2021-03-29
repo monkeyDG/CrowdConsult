@@ -40,23 +40,33 @@ namespace Adm4379Example.Pages
         public IActionResult OnPostAsync()
         {
             //System.Diagnostics.Debug.WriteLine("OnPostAsync");
-            var emailLogIn = Request.Form["emailLogIn"];
-            var passwordLogIn = Request.Form["passwordLogIn"];
-            var emailSignUp = Request.Form["emailSignUp"];
-            var passwordSignUp = Request.Form["passwordSignUp"];
             Users = MyUsersService.GetUsers();
+
             var returnVal = Page();
 
+            if ((Request.Form["emailSignUp"] != "" && Request.Form["passwordSignUp"] != "") && (Request.Form["emailLogIn"] == "" && Request.Form["passwordLogIn"] == "")) { // if the user has filled out the signup form and not the login form
+                var newUser = new Model.Users {
+                    name = Request.Form["nameSignUp"],
+                    company = Request.Form["companySignUp"],
+                    phone = Request.Form["phoneSignUp"],
+                    email = Request.Form["emailSignUp"],
+                    location = Request.Form["tags"],
+                    password = Request.Form["passwordSignUp"],
+                    picture = Request.Form["pictureSignUp"]
+                };
+                MyUsersService.Create(newUser);
+                logged_in = Request.Form["emailSignUp"];
+                return RedirectToPage("Dashboard");
+            }
+
             foreach (var user in Users) {
-                if ((emailLogIn == user.email && passwordLogIn == user.password) || (emailSignUp == user.email && passwordSignUp == user.password)) {
-                    //HttpContext.Session.SetString("username", email);
+                if (Request.Form["emailLogIn"] == user.email && Request.Form["passwordLogIn"] == user.password) { // if the user filled in the login form
+                    //HttpContext.Session.SetString("username", email); -- now deprecated, using TempData to store login
                     logged_in = user.email;
-                    return RedirectToPage("Dashboard");
-                } else {
-                    return Redirect("/Login?success=false");
+                    return RedirectToPage("Dashboard"); //if the login is successful, redirect to dashboard page which will be populated based on TempData email as id
                 }
             }
-            return returnVal;
+            return Redirect("/Login?success=false"); // if we get here, the login attempt failed
         }
     }
 }

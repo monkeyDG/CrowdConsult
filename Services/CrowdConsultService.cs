@@ -68,10 +68,10 @@ namespace Adm4379Example.Services {
             return _users.Find(users => true).ToList();
         }
         public void Update(Users usersUp) {
-            _users.ReplaceOne(users => users.mongo_id == usersUp.mongo_id, usersUp);
+            _users.ReplaceOne(users => users.id == usersUp.id, usersUp);
         }
         public void Remove(string id) {
-            _users.DeleteOne(users => users.mongo_id == id);
+            _users.DeleteOne(users => users.id == id);
         }
     }   
 }
