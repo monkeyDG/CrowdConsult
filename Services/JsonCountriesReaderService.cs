@@ -1,3 +1,5 @@
+//DEPRECATED, NOW USING MONGODB
+
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
