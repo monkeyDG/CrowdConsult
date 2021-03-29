@@ -17,7 +17,7 @@
                     @if (user.email == TempData.Peek("logged_in").ToString()) {
                         <h1><span>Submit a Business Case</span></h1>
                         <div class="container">
-                            <form action="CreateCase" onsubmit="return validateCaseSubmission()" method="POST">
+                            <form asp-page-handler="button" onsubmit="return validateCaseSubmission()" method="post">
                                 <div class="row">
                                     <div class="col25percent">
                                         <label for="company">Company</label>
@@ -65,10 +65,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="col25percent">
-                                        <label for="subject">Business Problem Description</label>
+                                        <label for="description">Business Problem Description</label>
                                     </div>
                                     <div class="col75percent">
-                                        <textarea id="subject" name="subject" placeholder="Write something..." style="height:200px"></textarea>
+                                        <textarea id="description" name="description" placeholder="Write something..." style="height:200px"></textarea>
                                     </div>
                                 </div>
                                 <div class="row">

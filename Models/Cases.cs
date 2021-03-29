@@ -2,12 +2,11 @@ using System.Collections.Generic;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace Adm4379Example.Model {
-        public class Responses
-    {
+        public class Responses {
         public string response_user { get; set; }
         public string response_description { get; set; }
         public long response_datetime { get; set; }
-        public string response_is_best { get; set; }
+        public bool response_is_best { get; set; }
     }
     public class Cases {
         [BsonId][BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]

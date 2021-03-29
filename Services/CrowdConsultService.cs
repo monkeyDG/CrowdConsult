@@ -42,6 +42,13 @@ namespace Adm4379Example.Services {
         public void Update(Cases casesUp) {
             _cases.ReplaceOne(cases => cases.id == casesUp.id, casesUp);
         }
+        public void addResponse(Responses responseToAppend, string case_id) { //allows us to append to a nested json object
+            _cases.UpdateOneAsync(
+                Builders<Cases>.Filter.Eq(cases => cases.id, case_id), // filters for the correct case
+                Builders<Cases>.Update.Push(cases => cases.Responses, responseToAppend) // appends the new response
+            );
+        }
+
         public void Remove(string id) {
             _cases.DeleteOne(cases => cases.id == id);
         }

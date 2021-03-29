@@ -23,7 +23,7 @@
                                 <div class="col75percent img-wrapper"><img src="@bcase.logo"><h6>@bcase.title</h6></div>
                                 <div class="col25percent info">
                                     <div>Responses: @bcase.num_responses</div>
-                                    <div id="@bcase.id"></div>
+                                    <div id="datetime_@bcase.id"></div>
                                     <div>Bounty (USD): @bcase.bounty$</div>
                                 </div>
                             </div>
@@ -34,9 +34,9 @@
             
             @foreach (var bcase in Model.Cases) {
                 <script type="text/javascript">
-                    document.getElementById(@bcase.id).innerHTML = "Posted: " + timeElapsed(@bcase.datetime) + " ago";
+                    document.getElementById("datetime_@bcase.id").innerHTML = "Posted: " + timeElapsed(@bcase.datetime) + " ago";
                 </script>
             } 
-        </div>
+        <div class="wrapper">
     </body>
 </html>

@@ -91,7 +91,7 @@ function validateCaseSubmission() {
     var company = document.getElementById("company");
     var title = document.getElementById("title");
     var bounty = document.getElementById("bounty");
-    var subject = document.getElementById("subject");
+    var description = document.getElementById("description");
     if (company.value === "") {
         alert("Please enter your company name.");
         company.focus();
@@ -104,14 +104,22 @@ function validateCaseSubmission() {
     } else if (!bountyIsValid(bounty.value) || bounty.value === "") {
         alert("Please enter a valid bounty (Positive number)");
         bounty.focus();
-    } else if (subject.value === "") {
+    } else if (description.value === "") {
         alert("Please enter a description to your problem.");
-        subject.focus();
+        description.focus();
     } else {
         return true; //only goes to the next page/submits if no errors on page
     }
     return false;
 };
+
+function validateResponseSubmission() {
+    var content = document.getElementById("response_content")
+    if (content.value ==="") {
+        alert("Please enter a response");
+        content.focus();
+    }
+}
 
 function validateContactForm() {
     const emailContact = document.getElementById("emailContact");

@@ -14,7 +14,7 @@
             <div id="signUpDiv">
                 <h1><span>Create a New Account</span></h1>
                 <div class="container">
-                    <form asp-page-handler="button" onsubmit="return validateSignUP()" method="post">
+                    <form asp-page-handler="button" onsubmit="return validateSignUp()" method="post">
                         <!-- above line validates the form when submitted. SignUp is not yet built to accept form inputs -- this will be connected to mongodb for Create operations.
                         We can use javascript local storage to store the values we want to add to mongodb if we want to do additional client-side validation first, since description text will be too long to pass by URL string query -->
                         <div class="row">

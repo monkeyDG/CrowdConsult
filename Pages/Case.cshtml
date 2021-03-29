@@ -64,8 +64,8 @@
                         <div>
                             <h2>Respond to this business case</h2>
                             <div>
-                                <form>
-                                    <textarea id="response" name="response" placeholder="Write your response..." style="height:300px"></textarea>
+                                <form asp-page-handler="button" onsubmit="return validateResponseSubmission()" method="post">
+                                    <textarea id="response_content" name="response_content" placeholder="Write your response..." style="height:300px"></textarea>
                                 </form>
                                 <br>
                             </div>  

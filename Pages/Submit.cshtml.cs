@@ -43,18 +43,26 @@ namespace Adm4379Example.Pages
         public IActionResult OnPostAsync()
         {
             //System.Diagnostics.Debug.WriteLine("OnPostAsync");
-            var company = Request.Form["company"];
-            var title = Request.Form["title"];
-            var country = Request.Form["country"];
-            var bounty = Request.Form["bounty"];
-            var tags = Request.Form["tags"];
-            var subject = Request.Form["subject"];
+
+            TimeSpan t = DateTime.UtcNow - new DateTime(1970, 1, 1);
+            int msSinceEpoch = (int)t.TotalSeconds*1000; // gets us the ms since epoch, which is the datetime format used throughout this project
+
+            List<Model.Responses> emptyResponses = new List<Model.Responses>();
 
             var newCase = new Model.Cases {
-                //id = 
+                user_email = TempData.Peek("logged_in").ToString(), //only logged in users can post business cases, which is verified by getting to this page. Therefore TempData should always contain the email of the user.
+                company = Request.Form["company"],
+                title = Request.Form["title"],
+                country = Request.Form["country"],
+                tags = Request.Form["tags"],
+                description = Request.Form["description"],
+                datetime = msSinceEpoch,
+                bounty = int.Parse(Request.Form["bounty"]), //need to recast as int type to save in db
+                num_responses = 0,
+                logo = "https://i.imgur.com/DZwcb9O.png",
+                Responses = emptyResponses
             };
             
-
             MyCasesService.Create(newCase);
 
             return RedirectToPage("Active");

@@ -42,7 +42,27 @@ namespace Adm4379Example.Pages
             MyUsersService = usersServ;
         }
         
-       
+        public IActionResult OnPostAsync()
+        {
+            TimeSpan t = DateTime.UtcNow - new DateTime(1970, 1, 1);
+            int msSinceEpoch = (int)t.TotalSeconds*1000; // gets us the ms since epoch, which is the datetime format used throughout this project
+
+            string case_id = HttpContext.Request.Query["id"]; // parses the case ID from the URL query string
+
+            List<Model.Responses> emptyResponses = new List<Model.Responses>();
+
+            var newResponse = new Model.Responses {
+                response_user = TempData.Peek("logged_in").ToString(), //only logged in users can post business cases, which is verified by getting to this page. Therefore TempData should always contain the email of the user.
+                response_description = Request.Form["response_content"],
+                response_datetime = msSinceEpoch,
+                response_is_best = false
+            };
+            
+            MyCasesService.addResponse(newResponse, case_id);
+
+            return RedirectToPage("Active");
+        }
+
         public void OnGet()
         {
             Countries = MyCountriesService.GetCountries();

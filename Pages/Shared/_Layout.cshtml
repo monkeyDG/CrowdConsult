@@ -78,7 +78,7 @@
                     <hr>
                 </div>
                 <div class="col-md-5">
-                    <form action="CreateContact" onsubmit="return validateContactForm()" method="POST"> <!-- validate the form if submitted. CreateContact is not yet built to accept form inputs -- this will be connected to mongodb for Create operations. We can use javascript local storage to store the values we want to add to mongodb and then email to a given address -->
+                    <form action="CreateContact" onsubmit="return validateContactForm()" method="post"> <!-- validate the form if submitted. CreateContact is not yet built to accept form inputs -- this will be connected to mongodb for Create operations. We can use javascript local storage to store the values we want to add to mongodb and then email to a given address -->
                         <fieldset class="form-group">
                             <input type="email" class="form-control" id="emailContact" placeholder="Enter email">
                         </fieldset>
